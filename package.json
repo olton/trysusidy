@@ -1,0 +1,31 @@
+{
+  "name": "trysusidy",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "",
+    "metro": "shx rm -rf public/metroui/* && rollup -c",
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@olton/datetime": "^3.0.5",
+    "@olton/metroui": "^5.0.9"
+  },
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "astro": "^4.12.2",
+    "less": "^4.2.0",
+    "rollup": "^4.19.0",
+    "rollup-plugin-postcss": "^4.0.2",
+    "shx": "^0.3.4"
+  }
+}
