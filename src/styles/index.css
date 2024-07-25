@@ -1,0 +1,23 @@
+:root {
+
+}
+
+.appbar-logo {
+    height: 48px;
+    width: 48px;
+    margin-right: 10px;
+}
+
+.appbar-logo-text {
+    font-size: 20px;
+}
+
+.homeland {
+    background: url('../assets/homeland.jpg') center no-repeat;
+    background-size: cover;
+    height: 500px;
+}
+
+.hero {
+    background-color: transparent;
+}

@@ -1,0 +1,42 @@
+---
+import GTag from "././GTag.astro"
+const { title = 'Три сусіди 1 - Об\'єднання співвласників багатоквартирних будинків', description = "", permalink = "https://trysusidy.kiev.ua", image = "/images/social-card.jpg", base } = Astro.props
+---
+{base && <base href={base}>}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.svg">
+<link rel="stylesheet" href="https://cdn.metroui.org.ua/dev/metro.css">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge"  />
+<meta name="author" content="Serhii Pimenov"/>
+<meta name="author:site" content="https://pimenov.com.ua"/>
+<meta name="author:email" content="serhii@pimenov.com.ua"/>
+<meta name="title" content={title}/>
+<meta name="description" content={description}/>
+
+<!-- Open Graph Tags (Facebook) -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content={title} />
+<meta property="og:url" content={permalink} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={image} />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:url" content={permalink} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={image} />
+
+<style is:global>
+    @import "../styles/index.css";
+    @import "../styles/theme.css";
+</style>
+
+<!--<GTag/>-->
