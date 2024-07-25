@@ -2,6 +2,12 @@
 
 }
 
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-flow: column;
+}
+
 .appbar-logo {
     height: 48px;
     width: 48px;

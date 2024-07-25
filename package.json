@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "",
-    "metro": "shx rm -rf public/metroui/* && rollup -c",
+    "build:metro": "shx rm -rf public/metroui/* && rollup -c",
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",

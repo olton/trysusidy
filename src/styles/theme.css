@@ -1,4 +1,6 @@
 :root {
-    --appbar-item-background-hover: #193060;
+    --appbar-item-background-hover: #617d89;
     --appbar-item-color-hover: #ffffff;
+    --d-menu-item-background-hover: #617d89;
+    --d-menu-item-color-hover: #ffffff;
 }
