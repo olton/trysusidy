@@ -77,3 +77,13 @@ body {
 .sidebar-group {
     padding: 20px;
 }
+
+.news-block {
+    display: flex;
+    flex-flow: column;
+
+    .news-block__title {
+        font-size: 1.4em;
+        margin-bottom: 6px;
+    }
+}
