@@ -81,6 +81,7 @@ body {
 .news-block {
     display: flex;
     flex-flow: column;
+    margin-bottom: 20px;
 
     .news-block__title {
         font-size: 1.4em;
