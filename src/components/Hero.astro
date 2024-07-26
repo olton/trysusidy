@@ -1,32 +1,23 @@
 ---
 import {Image} from "astro:assets"
+import HeroImage from "../../assets/homeland-2.jpg"
 ---
-<section class="container-fluid homeland">
+<section class="container-fluid homeland pb-10">
     <div class="container">
         <div class="hero p-0">
             <div class="row">
-                <div class="cell-lg-1"></div>
-                <div class="cell-lg-4 d-flex align-items-center">
-                    <div class="fg-white p-4 border bd-white mt-20 ml-4" style="
-                        background-color: rgba(97, 125, 137, .8);
-                        height: 312px;
-                        width: 340px;
-                        border-top-left-radius: 30px;
-                        border-bottom-right-radius: 30px;
-                        ">
-                        <div class="text-leader">
-                            Об'єднання співвласників багатоквартирних будинків "Три сусіди 1"
-                        </div>
-                        <div class="mt-4 reduce-1">
-                            ОСББ створено в 2019 році з метою управління багатоквартирними житловими будинками за адресами:
-                        </div>
-                        <ul class="mt-4">
-                            <li>пр-т Петра Григоренка 24</li>
-                            <li>вул. Ганни Ахматової 31</li>
-                            <li>вул. Ганни Ахматової 33</li>
-                        </ul>
+                <div class="cell-lg-7 p-10-md p-1-fs">
+                    <div class="display2 fg-teal text-bold">Три сусіди 1</div>
+                    <div class="text-leader2 mt-8 text-light">
+                        Об'єднання співвласників багатоквартирних будинків.
+                        ОСББ створено в 2019 році з метою управління багатоквартирними житловими будинками за адресами:
+                        <p class="mt-4 text-medium enlarge-2">пр-т П. Григоренка 24, вул. Г. Ахматової 31 та вул. Г. Ахматової 33
                     </div>
-
+                </div>
+                <div class="cell-lg-5">
+                    <div>
+                        <Image src={HeroImage} alt=""/>
+                    </div>
                 </div>
             </div>
         </div>

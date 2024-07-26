@@ -2,10 +2,51 @@
 
 }
 
+@font-face {
+    font-family: "eUkraine Light";
+    src: url('/fonts/e-Ukraine-Light.woff2') format("woff2");
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "eUkraine Medium";
+    src: url('/fonts/e-Ukraine-Medium.woff2') format("woff2");
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "eUkraine Regular";
+    src: url('/fonts/e-Ukraine-Regular.woff2') format("woff2");
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --regular-font: "eUkraine Regular", serif;
+    --light-font: "eUkraine Light", serif;
+    --medium-font: "eUkraine Medium", serif;
+}
+
 body {
     min-height: 100vh;
     display: flex;
     flex-flow: column;
+    padding-top: 120px;
+    font-family: var(--regular-font), sans-serif;
+}
+
+.text-light {
+    font-family: var(--light-font), sans-serif!important;
+}
+
+.text-medium {
+    font-family: var(--medium-font), sans-serif!important;
+}
+
+.text-normal {
+    font-family: var(--regular-font), sans-serif!important;
 }
 
 .appbar-logo {
@@ -19,11 +60,16 @@ body {
 }
 
 .hero {
-    background: url('../assets/homeland.jpg') center no-repeat;
+    /*background: transparent url('../assets/homeland-2.jpg') top right no-repeat;*/
     background-size: cover;
     height: 500px;
+    background-color: transparent;
 }
 
-.hero {
-    background-color: transparent;
+.highlight-block {
+    background: transparent linear-gradient(90deg, #fff2e6, #d1f8e1) 0 0 no-repeat padding-box;
+    padding: 40px 0;
+    font-size: 20px;
+    font-weight: 100;
+    line-height: 1.4;
 }

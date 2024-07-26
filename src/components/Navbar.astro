@@ -2,8 +2,8 @@
 import {Image} from "astro:assets"
 import Logo from "../../assets/logo.png"
 ---
-<div class="container-fluid border-bottom bd-default">
-    <nav data-role="appbar" data-expand-point="xl" class="pt-4 pb-4 container pos-relative">
+<div class="container-fluid" style="position: fixed; top: 0; left: 0; right: 0; z-index: var(--z-index-fixed);">
+    <nav data-role="appbar" data-expand-point="xl" class="pt-4 pb-4 container pos-relative border-bottom bd-default">
         <a href="/" class="app-bar-item-static">
             <Image src={Logo} alt="Три сусіди 1" class="appbar-logo"/>
             <div class="appbar-logo-text">ОСББ <span class="text-bold fg-dark">&laquo;Три Сусіди 1&raquo;</span></div>
@@ -34,10 +34,10 @@ import Logo from "../../assets/logo.png"
                 <ul class="d-menu" data-role="dropdown">
                     <li><a href="#">Наші реквізіти</a></li>
                     <li class="divider"></li>
-                    <li><a href="#">Боржники</a></li>
-                    <li class="divider"></li>
                     <li><a href="#">Штатний розклад</a></li>
                     <li><a href="#">Кошторис</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Боржники</a></li>
                 </ul>
             </li>
             <li><a href="/blog">Блог</a></li>
@@ -45,3 +45,10 @@ import Logo from "../../assets/logo.png"
         </ul>
     </nav>
 </div>
+<style>
+    //.app-bar {
+    //    box-shadow: 0 3px 6px rgba(0, 0, 0, .161);
+    //    border-bottom-right-radius: 20px;
+    //    border-bottom-left-radius: 20px;
+    //}
+</style>

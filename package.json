@@ -18,7 +18,8 @@
   "description": "",
   "dependencies": {
     "@olton/datetime": "^3.0.5",
-    "@olton/metroui": "^5.0.9"
+    "@olton/metroui": "^5.0.9",
+    "mdast-util-to-string": "^4.0.0"
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^15.2.3",
