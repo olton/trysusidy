@@ -3,14 +3,14 @@ import {str} from "@olton/string"
 import {datetime} from "@olton/datetime/dist/datetime.es.js"
 const { news } = Astro.props
 const {id, slug, body, data, render} = news
-const {title, date, description} = data
+const {title, date, description, important = true} = data
 
 const {Content} = await render()
 ---
 
 <article class="mb-5 border bd-default p-5 border-radius-10">
     <div class="place-right reduce-2 text-muted">{datetime(date).format("DD, MMM YYYY")}</div>
-    <div class="h3 no-decor d-block mt-4">{title}</div>
+    <div class:list={["h3", "mb-4", {"fg-red": important}]}>{title}</div>
 
     <div class="news-content">
         <Content/>

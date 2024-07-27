@@ -6,12 +6,12 @@ const paginationList = Array.from({length: `${length}`}, (_, i) => i + 1);
 <ul aria-label="Blog pages" class="pagination no-gap">
     { firstUrl == currentUrl ? (
         <li class="page-item disabled">
-            <a class="page-link"><span>First</span></a>
+            <a class="page-link"><span>Перша</span></a>
         </li>
     ) : (
         <li class="page-item">
             <a href={firstUrl} class="page-link">
-                <span>First</span>
+                <span>Перша</span>
             </a>
         </li>
     )}
@@ -19,12 +19,12 @@ const paginationList = Array.from({length: `${length}`}, (_, i) => i + 1);
     { prevUrl ? (
         <li class="page-item">
             <a href={prevUrl} class="page-link">
-                <span>Prev</span>
+                <span>Попередня</span>
             </a>
         </li>
     ) : (
         <li class="page-item disabled">
-            <a class="page-link"><span>Prev</span></a>
+            <a class="page-link"><span>Попередня</span></a>
         </li>
     )}
 
@@ -40,12 +40,12 @@ const paginationList = Array.from({length: `${length}`}, (_, i) => i + 1);
 
     { !nextUrl ? (
         <li class="page-item disabled">
-            <a class="page-link"><span>Next</span></a>
+            <a class="page-link"><span>Наступна</span></a>
         </li>
     ) : (
         <li class="page-item">
             <a href={nextUrl} class="page-link">
-                <span>Next</span>
+                <span>Наступна</span>
             </a>
         </li>
     )}
@@ -53,12 +53,12 @@ const paginationList = Array.from({length: `${length}`}, (_, i) => i + 1);
     { currentPage < length ? (
         <li class="page-item">
             <a href={lastUrl} class="page-link">
-                <span>Last</span>
+                <span>Остання</span>
             </a>
         </li>
     ) : (
         <li class="page-item disabled">
-            <a class="page-link"><span>Last</span></a>
+            <a class="page-link"><span>Остання</span></a>
         </li>
     )}
 </ul>

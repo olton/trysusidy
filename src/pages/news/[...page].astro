@@ -3,13 +3,10 @@ import { getCollection } from 'astro:content'
 import PageLayout from "../../layouts/Page.astro"
 import Pagination from "../../components/Pagination.astro";
 import NewsCard from "../../components/NewsCard.astro";
-import {filterPosts, shuffleArray, tagsWeight} from "../../js/utils.js";
-import PostLinks from "../../components/PostLinks.astro";
-import NewsLinks from "../../components/NewsLinks.astro";
+import {filterPosts} from "../../js/utils.js";
 
 const allNews = filterPosts(await getCollection('news'))
 const news = filterPosts(await getCollection('news', {limit: 5}))
-const randomNews = shuffleArray(allNews).slice(0, 5)
 export async function getStaticPaths({ paginate }) {
     const posts = filterPosts(await getCollection('news'));
 
