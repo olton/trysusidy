@@ -1,0 +1,20 @@
+---
+import { datetime } from "@olton/datetime/dist/datetime.es.js"
+import { str } from "@olton/string"
+const {posts} = Astro.props
+---
+<ul class="post-links">
+    {posts.map(async p => {
+        const { remarkPluginFrontmatter } = await p.render()
+        return <li>
+                <a href=`/blog/${p.slug}`>
+                    {p.data.title}
+                    <div class="text-light reduce-3 mt-1 mb-1">{str(p.data.description).truncateWithAlign(150)}...</div>
+                    <div class="d-flex flex-row flex-nowrap">
+                        <span class="reduce-2 text-normal">{remarkPluginFrontmatter.time}</span>
+                        <span class="ml-auto reduce-2">{datetime(p.data.date).format("DD, MMM YYYY")}</span>
+                    </div>
+                </a>
+            </li>
+    })}
+</ul>

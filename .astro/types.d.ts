@@ -1,5 +1,15 @@
 declare module 'astro:content' {
 	interface Render {
+		'.mdx': Promise<{
+			Content: import('astro').MarkdownInstance<{}>['Content'];
+			headings: import('astro').MarkdownHeading[];
+			remarkPluginFrontmatter: Record<string, any>;
+		}>;
+	}
+}
+
+declare module 'astro:content' {
+	interface Render {
 		'.md': Promise<{
 			Content: import('astro').MarkdownInstance<{}>['Content'];
 			headings: import('astro').MarkdownHeading[];
@@ -126,6 +136,13 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"blog": {
+"generator.md": {
+	id: "generator.md";
+  slug: "zbir-na-generator";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "welcome.md": {
 	id: "welcome.md";
   slug: "welcome";
@@ -135,6 +152,13 @@ declare module 'astro:content' {
 } & { render(): Render[".md"] };
 };
 "news": {
+"generator.md": {
+	id: "generator.md";
+  slug: "generator";
+  body: string;
+  collection: "news";
+  data: InferEntrySchema<"news">
+} & { render(): Render[".md"] };
 "welcome.md": {
 	id: "welcome.md";
   slug: "welcome";

@@ -1,6 +1,6 @@
 ---
-title: Welcome to our News chanel
-date: 2024-06-02
-description: "This is our news channel."
+title: Ласкаво просимо на наш Новинний канал
+date: 2024-07-27
+description: Це новосний канал ОСББ Три сусіди 1
 ---
-This is our news channel.
+Ласкаво просимо на наш Новинний канал. Тут ви знайдете останні об'яви та новини нашого ОСББ.

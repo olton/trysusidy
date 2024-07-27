@@ -1,6 +1,3 @@
-import {toString} from "mdast-util-to-string";
-import getReadingTime from "./reading-time.js";
-
 export function slugify(text) {
     return text
         .toString()
@@ -88,12 +85,4 @@ export function filterPosts(posts, {
     }
 
     return filteredPosts
-}
-
-export function readingTime() {
-    return function (tree, { data }) {
-        const textOnPage = toString(tree);
-        const readingTime = getReadingTime(textOnPage);
-        data.astro.frontmatter.time = readingTime.text;
-    };
 }

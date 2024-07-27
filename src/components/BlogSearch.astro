@@ -1,0 +1,24 @@
+---
+
+---
+<aside>
+    <form id="search-form" class="form mt-4" action="javascript:">
+        <input type="search" name="search" id="search" placeholder="Пошук..." data-role="input" data-search-button="true"/>
+    </form>
+</aside>
+<script>
+    import DOMPurify from "dompurify"
+
+    const form = $("#search-form")
+
+    form.on("submit", function(e){
+        const formData = new FormData(form[0])
+        const searchTerm = DOMPurify.sanitize(formData.get("search").toString())
+        if (!searchTerm.trim()|| searchTerm.length === 0) {
+            return false
+        }
+        const url = new URL("/blog/search", window.location.origin)
+        url.searchParams.set("q", searchTerm)
+        window.location.assign(url.toString())
+    })
+</script>

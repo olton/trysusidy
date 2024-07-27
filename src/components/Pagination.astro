@@ -1,0 +1,64 @@
+---
+const { length, currentUrl, currentPage, firstUrl, prevUrl, nextUrl, lastUrl } = Astro.props;
+const paginationList = Array.from({length: `${length}`}, (_, i) => i + 1);
+---
+
+<ul aria-label="Blog pages" class="pagination no-gap">
+    { firstUrl == currentUrl ? (
+        <li class="page-item disabled">
+            <a class="page-link"><span>First</span></a>
+        </li>
+    ) : (
+        <li class="page-item">
+            <a href={firstUrl} class="page-link">
+                <span>First</span>
+            </a>
+        </li>
+    )}
+
+    { prevUrl ? (
+        <li class="page-item">
+            <a href={prevUrl} class="page-link">
+                <span>Prev</span>
+            </a>
+        </li>
+    ) : (
+        <li class="page-item disabled">
+            <a class="page-link"><span>Prev</span></a>
+        </li>
+    )}
+
+    {
+        paginationList.map((num) => (
+            <li class="page-item">
+                <a href={`${firstUrl}${num == 1 ? "" : '/'+(num)}`} class={`page-link ${currentPage == num ? "disabled active" : ""}`}>
+                    {num}
+                </a>
+            </li>
+        ))
+    }
+
+    { !nextUrl ? (
+        <li class="page-item disabled">
+            <a class="page-link"><span>Next</span></a>
+        </li>
+    ) : (
+        <li class="page-item">
+            <a href={nextUrl} class="page-link">
+                <span>Next</span>
+            </a>
+        </li>
+    )}
+
+    { currentPage < length ? (
+        <li class="page-item">
+            <a href={lastUrl} class="page-link">
+                <span>Last</span>
+            </a>
+        </li>
+    ) : (
+        <li class="page-item disabled">
+            <a class="page-link"><span>Last</span></a>
+        </li>
+    )}
+</ul>

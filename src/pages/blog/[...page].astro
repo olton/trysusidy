@@ -1,0 +1,98 @@
+---
+import { getCollection } from 'astro:content'
+import PageLayout from "../../layouts/Page.astro"
+import Pagination from "../../components/Pagination.astro";
+import BlogPostCard from "../../components/BlogPostCard.astro";
+import {filterPosts, shuffleArray, tagsWeight} from "../../js/utils.js";
+import PostLinks from "../../components/PostLinks.astro";
+import NewsLinks from "../../components/NewsLinks.astro";
+import CloudTags from "../../components/CloudTags.astro";
+import BlogSearch from "../../components/BlogSearch.astro";
+
+const authors = await getCollection('authors')
+const allPosts = filterPosts(await getCollection('blog'))
+const news = filterPosts(await getCollection('news', {limit: 5}))
+const randomPosts = shuffleArray(allPosts).slice(0, 5)
+const tags = tagsWeight(allPosts)
+export async function getStaticPaths({ paginate }) {
+    const posts = filterPosts(await getCollection('blog'));
+
+    return paginate(posts, {
+        pageSize: 5,
+    })
+}
+const { page } = Astro.props;
+---
+<PageLayout title="Блог ОСББ Три сусіди 1">
+    <section class="container-fluid pt-4 pb-4">
+        <div class="container">
+            <div class="row" style="--grid-gutter: 40px;">
+                <div class="cell-md-8">
+                    <div class="">
+                        {
+                            page.data.map( (post) => <BlogPostCard {post} />)
+                        }
+                    </div>
+                    <div class="">
+                        <Pagination length={page.lastPage}
+                                    currentUrl={page.url.current}
+                                    currentPage={page.currentPage}
+                                    firstUrl={`/blog`}
+                                    prevUrl={page.url.prev}
+                                    nextUrl={page.url.next}
+                                    lastUrl={`/blog/${page.lastPage}`}
+                        />
+                    </div>
+                </div>
+                <div class="cell-md-4">
+                    <div class="border-left bd-default pl-4 pr-4">
+                        <h1 class="d-flex flex-row flex-nowrap flex-align-center">
+                            <span>Блог</span>
+                            <span class="posts-counter ml-auto">{allPosts.length}</span>
+                        </h1>
+
+                        <div class="blog-sidebar-group">
+                            <BlogSearch/>
+                        </div>
+
+                        <div class="blog-sidebar-group">
+                            <div class="text-bold border-bottom bd-default">Випадкові публікації</div>
+                            {
+                                randomPosts && <PostLinks posts={randomPosts} />
+                            }
+                        </div>
+
+                        <div class="blog-sidebar-group d-none">
+                            <div class="text-bold border-bottom bd-default d-flex flex-align-center">
+                                Newsletter
+                                <a class="ml-auto button mini link" href="/news">All News</a>
+                            </div>
+                            {
+                                news && <NewsLinks posts={news} />
+                            }
+                        </div>
+
+                        <div class="blog-sidebar-group">
+                            <div class="text-bold border-bottom bd-default">Хмара тегів</div>
+                            <CloudTags {tags} />
+                        </div>
+
+                        <div class="blog-sidebar-group">
+                            <div class="text-bold border-bottom bd-default">RSS Feeds</div>
+                            <ul class="rss-feeds">
+                                <li><a href="/blog.xml">Блог</a></li>
+                                <li><a href="/news.xml">Новини</a></li>
+                            </ul>
+                            <div class="remark text-small p-4 border-radius-10">
+                                Використовуйте наш канал RSS, щоб бути в курсі того, що ми ділимося.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</PageLayout>
+<style is:global>
+    @import "../../styles/blog.css";
+</style>

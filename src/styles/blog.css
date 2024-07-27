@@ -1,0 +1,233 @@
+.toc {
+    ul {
+        list-style: none;
+        margin: 0;
+    }
+
+    li {
+        line-height: 1.2;
+        margin-top: 4px;
+    }
+
+    a {
+        color: #7f8c97!important;
+        font-size: 14px;
+    }
+}
+
+.read-more {
+    background: #3366be;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 4px 8px;
+    font-size: 12px;
+}
+
+.category {
+    background: var(--kbd-background);
+    color: #ffffff!important;
+    font-size: 12px;
+    text-decoration: none;
+    padding: 4px 8px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+}
+
+.datetime {
+    font-size: 12px;
+    text-decoration: none;
+    margin: 0 4px;
+    color: #7f8c97;
+}
+
+.blog-cover {
+    object-fit: cover;
+    height: 200px;
+    margin: 10px 0 0;
+    border-radius: 10px;
+    background-position: top left;
+    background-color: var(--prefooter-background);
+}
+
+.author-links {
+    margin: 10px 0;
+    li {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10px;
+
+        img {
+            width: 220px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .author-name {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--accent-block-color);
+            text-decoration: none;
+            &:hover {
+                /*color: #ffff;*/
+            }
+        }
+        .author-role {
+            font-size: 12px;
+            color: #969696;
+            text-align: center;
+        }
+        .author-github {}
+    }
+}
+
+.tag {
+    display: inline-flex;
+    padding: 4px 8px;
+    font-size: 11px;
+    border-radius: 4px;
+    margin-left: 4px;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    text-decoration: none;
+    background: var(--kbd-background);
+    color: #fff!important;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.post-content {
+    img:not(.post-cover) {
+        margin: 20px 0;
+        border: 1px solid #88c0ff;
+        padding: 10px;
+        background-color: #ecf3ff;
+    }
+}
+
+.blog-sidebar-group {
+    margin-top: 20px;
+}
+
+ol {
+    list-style: decimal;
+}
+
+.cloud-tags {
+    margin: 10px 0;
+    padding: 0;
+    list-style: none inside;
+    font-size: 8px;
+    display: flex;
+    flex-flow: row wrap;
+
+    li {
+        display: flex;
+        align-items: center;
+        white-space: nowrap;
+        margin: 2px;
+        border: 1px solid #dadada;
+        border-radius: 4px;
+        padding: 0 4px;
+    }
+
+    li.tag-weight-1 { font-size: 1em; }
+    li.tag-weight-2 { font-size: 1.1em; }
+    li.tag-weight-3 { font-size: 1.2em; }
+    li.tag-weight-4 { font-size: 1.3em; }
+    li.tag-weight-5 { font-size: 1.4em; }
+    li.tag-weight-6 { font-size: 1.5em; }
+    li.tag-weight-7 { font-size: 1.6em; }
+    li.tag-weight-8 { font-size: 1.7em; }
+    li.tag-weight-9 { font-size: 1.8em; }
+    li.tag-weight-10 { font-size: 1.9em; }
+
+    .tag-link {
+        color: #707070;
+        text-decoration: none;
+        &:hover {
+            color: #000000;
+        }
+    }
+}
+
+.post-links {
+    list-style: none inside;
+    font-size: 14px;
+    margin: 0;
+
+    li {
+        line-height: 1.2;
+        margin: 8px 0;
+        padding: 8px 0 16px;
+
+        &:not(:last-child) {
+            border-bottom: 1px dashed #7f8c97;
+        }
+    }
+
+    a {
+        color: var(--accent-block-color);
+        text-decoration: none!important;
+        font-weight: 500;
+    }
+}
+
+#blog-preview {
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+mark {
+    background-color: #E9F284;
+}
+
+.post-cover {
+    background: #eaeaea;
+    border: 1px solid #e8e8e8;
+}
+
+.posts-counter {
+    background: var(--appbar-item-background-hover);
+    color: #fff;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.share-links {
+    display: flex;
+    flex-flow: row;
+    list-style: none;
+    margin: 6px 0 0;
+    padding: 0;
+
+    li {
+        margin-right: 14px;
+    }
+
+    a {
+        text-decoration: none!important;
+        font-size: 22px;
+        color: var(--accent-block-color);
+        transition: all 0.6s ease;
+        border: 1px var(--border-color) solid;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+    }
+}

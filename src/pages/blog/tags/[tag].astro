@@ -1,0 +1,69 @@
+---
+import { getCollection } from "astro:content"
+import PageLayout from "../../../layouts/Page.astro";
+import BlogPostCard from "../../../components/BlogPostCard.astro";
+import {filterPosts} from "../../../js/utils.js";
+import PostLinks from "../../../components/PostLinks.astro";
+import BlogSearch from "../../../components/BlogSearch.astro";
+
+const authors = await getCollection('authors')
+const recentPosts = filterPosts(await getCollection('blog'), {limit: 5})
+
+export async function getStaticPaths({ paginate }) {
+    const allPosts = filterPosts(await getCollection("blog"))
+    const uniqueTags = [...new Set(allPosts.map((post) => post.data.tags).flat())]
+
+    return uniqueTags.map((tag) => {
+        const filteredPosts = allPosts.filter((post) =>
+            post.data.tags.includes(tag)
+        );
+        return {
+            params: { tag },
+            props: { posts: filteredPosts },
+        };
+    });
+}
+
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+---
+<PageLayout title="Kozrh's Blog">
+    <section class="container-fluid pt-4 pb-4">
+        <div class="row">
+            <div class="cell-md-8">
+                <h2>
+                    <a class="history-back reduce-2" href="#"><span class="mif-arrow-left"></span></a>
+                    Posts tagged by <span class="">`{tag}`</span>
+                </h2>
+                <hr/>
+                <div class="pr-10-md pl-10-md">
+                    {
+                        posts.map( (post) => <BlogPostCard {post} />)
+                    }
+                </div>
+            </div>
+            <div class="cell-md-4">
+                <div class="border-left bd-default pl-4 pr-4">
+                    <h1 class="d-flex flex-row flex-nowrap flex-align-center">
+                        <span>Blog</span>
+                        <span class="posts-counter ml-auto">{posts.length}</span>
+                    </h1>
+
+                    <div class="blog-sidebar-group">
+                        <BlogSearch/>
+                    </div>
+
+                    <div class="blog-sidebar-group">
+                        <div class="text-bold border-bottom bd-default">Recent Posts</div>
+                        {
+                            recentPosts && <PostLinks posts={recentPosts} />
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</PageLayout>
+<style is:global>
+    @import "../../../styles/blog.css";
+</style>

@@ -1,24 +1,24 @@
 ---
-title: Welcome to our Blog!
+title: Ласкаво просимо до нашого блогу!
 date: 2024-06-02
 cover: {
-    src: /images/blog.svg
+    src: /images/post.svg
 }
 category: "welcome"
 tags: ["welcome"]
 sort: 1
 slug: welcome
 draft: false
-description: Welcome to our blog! We are so excited to have you here! Our team is working hard to share inspiring stories, professional insights, and significant updates from our industry
+description: "Ми дуже раді, що ви тут! Наша команда наполегливо працює над тим, щоб ділитися надихаючими історіями, професійними ідеями та важливими оновленнями в діяльності нашого ОСББ."
 ---
-## Welcome to our blog! 
+## Ласкаво просимо до нашого блогу!
 
-We are so excited to have you here! Our team is working hard to share inspiring stories, professional insights, and significant updates from our industry.
+Ми дуже раді, що ви тут! Наша команда наполегливо працює над тим, щоб ділитися надихаючими історіями, професійними ідеями та важливими оновленнями в діяльності нашого ОСББ.
 
-Our journey is led by incessant curiosity and an enthusiasm to share knowledge and ideas. We truly believe that everyone has something to learn and something to teach.
+Наша подорож ведеться невпинною цікавістю та ентузіазмом ділитися знаннями та ідеями. Ми щиро віримо, що кожному є чому навчитися та чого навчити.
 
-In this blog, we promise to bring you engaging content that stimulates curiosity and encourages you to explore. We will cover a range of topics, present unique perspectives, and open dialect on the latest trends in software development.
+У цьому блозі ми обіцяємо надати вам цікавий вміст, який стимулює цікавість і спонукає вас досліджувати. Ми охопимо низку тем, представимо унікальні перспективи та відкрито поговоримо про останні тенденції розробки програмного забезпечення.
 
-We believe that the power of the community is profound, so we encourage your comments, questions, and ideas on our posts. Let’s share, grow, and learn, together.
+Ми віримо, що сила спільноти є величезною, тому ми заохочуємо ваші коментарі, запитання та ідеї до наших публікацій. Давайте ділитися, рости та навчатися разом.
 
-Stay tuned and happy reading! 
+Залишайтеся з нами та приємного читання!

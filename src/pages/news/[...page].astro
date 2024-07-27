@@ -1,0 +1,68 @@
+---
+import { getCollection } from 'astro:content'
+import PageLayout from "../../layouts/Page.astro"
+import Pagination from "../../components/Pagination.astro";
+import NewsCard from "../../components/NewsCard.astro";
+import {filterPosts, shuffleArray, tagsWeight} from "../../js/utils.js";
+import PostLinks from "../../components/PostLinks.astro";
+import NewsLinks from "../../components/NewsLinks.astro";
+
+const allNews = filterPosts(await getCollection('news'))
+const news = filterPosts(await getCollection('news', {limit: 5}))
+const randomNews = shuffleArray(allNews).slice(0, 5)
+export async function getStaticPaths({ paginate }) {
+    const posts = filterPosts(await getCollection('news'));
+
+    return paginate(posts, {
+        pageSize: 5,
+    })
+}
+const { page } = Astro.props;
+---
+<PageLayout title="Новини ОСББ Три сусіди 1">
+    <section class="container-fluid pt-4 pb-4">
+        <div class="container">
+            <div class="row" style="--grid-gutter: 40px;">
+                <div class="cell-md-8">
+                    <div class="">
+                        {
+                            page.data.map( (news) => <NewsCard {news} />)
+                        }
+                    </div>
+                    <div class="">
+                        <Pagination length={page.lastPage}
+                                    currentUrl={page.url.current}
+                                    currentPage={page.currentPage}
+                                    firstUrl={`/blog`}
+                                    prevUrl={page.url.prev}
+                                    nextUrl={page.url.next}
+                                    lastUrl={`/news/${page.lastPage}`}
+                        />
+                    </div>
+                </div>
+                <div class="cell-md-4">
+                    <div class="border-left bd-default pl-4 pr-4">
+                        <h1 class="d-flex flex-row flex-nowrap flex-align-center">
+                            <span>Новини</span>
+                            <span class="posts-counter ml-auto">{allNews.length}</span>
+                        </h1>
+
+                        <div class="blog-sidebar-group">
+                            <div class="text-bold border-bottom bd-default">RSS Feeds</div>
+                            <ul class="rss-feeds">
+                                <li><a href="/blog.xml">Наш Блог</a></li>
+                                <li><a href="/news.xml">Новини нашого ОСББ</a></li>
+                            </ul>
+                            <div class="remark text-small p-4 border-radius-10">
+                                Використовуйте наш канал RSS, щоб бути в курсі того, що ми ділимося.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</PageLayout>
+<style is:global>
+    @import "../../styles/blog.css";
+</style>

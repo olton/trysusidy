@@ -1,0 +1,22 @@
+---
+import {datetime} from "@olton/datetime/dist/datetime.es.js"
+import {Image} from "astro:assets";
+const { post } = Astro.props
+const {id, slug, body, data, render} = post
+const {title, date, cover, draft, category, tags, time, description} = data
+const { remarkPluginFrontmatter } = await render();
+---
+
+<article class="p-2">
+    <Image src={cover.src} alt={cover.alt} width="1200" height="100" class="blog-cover border bd-default" format="avif"/>
+
+    <a class="h5 no-decor d-block mt-4" href=`/blog/${slug}`>{title}</a>
+
+    <div class="mt-4 mb-1 reduce-2" set:html={description+'...'}></div>
+
+    <div class="text-muted reduce-3">
+        <span class="datetime">{datetime(date).format("DD, MMM YYYY")}</span>
+        &bull;
+        <span class="">{remarkPluginFrontmatter.time}</span>
+    </div>
+</article>

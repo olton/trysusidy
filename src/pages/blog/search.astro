@@ -1,0 +1,159 @@
+---
+import PageLayout from "../../layouts/Page.astro";
+import BlogSearch from "../../components/BlogSearch.astro";
+---
+<PageLayout title="Search the Blog">
+    <section class="container-fluid pt-4 pb-4">
+        <div class="row">
+            <div class="cell-md-9">
+                <div class="pr-10-md pl-10-md">
+                    <iframe name="blog-preview" id="blog-preview"></iframe>
+                    <div id="post-preview"></div>
+                </div>
+            </div>
+            <div class="cell-md-3">
+                <div class="border-left bd-default pl-4 pr-4">
+                    <h1 class="d-flex flex-row flex-nowrap flex-align-center">
+                        <span>Blog</span>
+                        <span class="posts-counter ml-auto" id="result-count">0</span>
+                    </h1>
+
+                    <div class="blog-sidebar-group">
+                        <BlogSearch/>
+                    </div>
+
+                    <div class="blog-sidebar-group">
+                        <div class="text-bold enlarge-2 border-bottom bd-default">Blog Search Results</div>
+                    </div>
+
+                    <div class="blog-sidebar-group">
+                        <ul id="searchResults" class="post-links"></ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</PageLayout>
+
+<style is:global>
+    @import "../../styles/blog.css";
+</style>
+
+<script>
+    import DOMPurify from "dompurify"
+    import Fuse from "fuse.js"
+    import {datetime} from "@olton/datetime"
+    import { str } from "@olton/string"
+
+    const search = document.querySelector("#search")
+    const searchResults = document.querySelector("#searchResults")
+    const blogPreview = document.querySelector("#blog-preview")
+    const postPreview = document.querySelector("#post-preview")
+    const resultCount = document.querySelector("#result-count")
+
+    let q = ''
+
+    function updateDocumentTitle(search){
+        document.title = search
+            ? `Search results for "${search}"`
+            : `Search the Blog`
+    }
+
+    async function fetchSearchResults(search){
+        try {
+            const res = await fetch("/blog/search.json")
+            if (!res.ok) {
+                throw new Error(`Something went wrong! Please try again.`)
+            }
+            const data = await res.json()
+            const fuse = new Fuse(data, {
+                includeScore: true,
+                shouldSort: true,
+                threshold: 0.5,
+                ignoreLocation: true,
+                minMatchCharLength: 2,
+                findAllMatches: true,
+                keys: [
+                    {
+                        name: "title",
+                        weight: 1
+                    },
+                    {
+                        name: "description",
+                        weight: 1
+                    },
+                    {
+                        name: "body",
+                        weight: 1
+                    },
+                ]
+            })
+            const searchResult = fuse.search(search)
+            const filteredResult = searchResult.filter(post => post.score <= 0.6)
+            resultCount.innerHTML = filteredResult.length.toString()
+            searchResults.innerHTML = filteredResult.map(post => {
+                const {score} = post
+                let _class = ''
+                if (score <= 0.1) { _class += ' fg-green' }
+                if (score > 0.1 && score <= 0.3) { _class += ' fg-darkGreen' }
+                if (score > 0.3 && score <= 0.6) { _class += ' fg-orange' }
+                if (score > 0.6 && score <= 0.8) { _class += ' fg-darkOrange' }
+                if (score > 0.8 && score <= 1) { _class += ' fg-red' }
+                return `
+                    <li>
+                        <a class="" target="blog-preview" href="/blog/${post.item.slug}" title="Preview Post">
+                            ${post.item.title}
+                            <div class="text-light reduce-3 mt-1 mb-1">${str(post.item.description).truncateWithAlign(150)}</div>
+                        </a> 
+                        <div class="d-flex flex-row flex-nowrap">
+                            <small class="d-none ${_class}">[Score: ${Math.round((1 - post.score) * 100)}%]</small>
+                            <span class="ml-auto1 reduce-1">${datetime(post.item.date).format("DD, MMM YYYY")}</span>                            
+                            <a class="ml-auto reduce-2" href="/blog/${post.item.slug}">Goto post...</a>                            
+                        </div>                                                    
+                    </li>
+                `
+            }).join("")
+            searchResults.querySelector("a").click()
+        } catch (e) {
+            console.error(e)
+        }
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+        const urlParams = DOMPurify.sanitize(new URLSearchParams(window.location.search).get("q"))
+
+        fetchSearchResults(urlParams)
+        updateDocumentTitle(urlParams)
+
+        q = urlParams
+
+        search.value = urlParams
+        search.focus()
+    })
+
+    search.addEventListener("input", () => {
+        const searchTerms = DOMPurify.sanitize(search.value)
+    })
+
+    blogPreview.addEventListener("load", () => {
+        const iframeDocument = blogPreview.contentWindow.document
+        let title = iframeDocument.querySelector(".post-title").innerHTML
+        let html = iframeDocument.querySelector(".post-content").innerHTML
+        postPreview.innerHTML = `
+            <h1 id="js-post-title" class="text-bold border-bottom bd-default pb-4 mt-0">${title}</h1>
+            <div id="js-post-content">${html}</div>
+        `
+
+        const _title = $("#js-post-title")
+        const _post = $("#js-post-content")
+
+        q.split(" ").map( s => {
+            const r = new RegExp(`${s}`, "gi")
+            _title.html(_title.html().replaceAll(r, `<mark>${s}</mark>`))
+            _post.find("div, p, li, h1, h2, h3, h4, code").each((_, el) => {
+                el.innerHTML = el.innerHTML.replaceAll(r, `<mark>${s}</mark>`)
+            })
+        })
+    })
+</script>
