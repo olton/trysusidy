@@ -11916,8 +11916,8 @@ globalThis.G = G$1;
 
     var Metro = {
 
-        version: "5.0.9",
-        build_time: "23.07.2024, 19:35:45",
+        version: "5.0.8",
+        build_time: "22.07.2024, 12:07:33",
         buildNumber: 0,
         isTouchable: isTouch,
         fullScreenEnabled: document.fullscreenEnabled,
@@ -12111,8 +12111,24 @@ globalThis.G = G$1;
             }
         },
 
+        showCompileTime: function(){
+            return ""
+        },
+
         aboutDlg: function(){
             alert("Metro UI - v" + Metro.version);
+        },
+
+        ver: function(){
+            return Metro.version;
+        },
+
+        build: function(){
+            return Metro.build;
+        },
+
+        compile: function(){
+            return ""
         },
 
         observe: function(){
@@ -12599,19 +12615,6 @@ globalThis.G = G$1;
 
             buffer: function(response){
                 return response.arrayBuffer();
-            }
-        },
-
-        i18n: {
-            loadLocale(lang = 'en-US'){
-
-            },
-
-            getMessage(id){
-                return ""
-            },
-
-            updateUI(){
             }
         }
     };
@@ -23400,7 +23403,7 @@ globalThis.G = G$1;
 (function(Metro, $) {
     var Utils = Metro.utils;
     var CounterDefaultConfig = {
-        startOnViewport: true,
+        startOnViewport: false,
         counterDeferred: 0,
         duration: 2000,
         value: 0,
@@ -23455,7 +23458,7 @@ globalThis.G = G$1;
         },
 
         start: function(val, from){
-            var that = this, element = this.element, o = this.options;
+            var that = this, elem = this.elem, o = this.options;
 
             if (Utils.isValue(from)) {
                 o.from = +from;
@@ -23469,7 +23472,8 @@ globalThis.G = G$1;
 
             this._fireEvent("start");
 
-            element.animate({
+            Animation.animate({
+                el: elem,
                 draw: {
                     innerHTML: [o.from, o.value]
                 },
@@ -23482,6 +23486,8 @@ globalThis.G = G$1;
                     this.innerHTML = o.prefix + Number(this.innerHTML).format(0, 0, o.delimiter) + o.suffix;
                 },
                 onDone: function(){
+                    console.log(`Done: ${o.value}`);
+                    this.innerHTML = o.prefix + Number(o.value).format(0, 0, o.delimiter) + o.suffix;
                     that._fireEvent("stop");
                 }
             });
