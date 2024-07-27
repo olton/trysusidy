@@ -76,6 +76,7 @@ body {
 
 .sidebar-group {
     padding: 20px;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .news-block {
@@ -86,5 +87,12 @@ body {
     .news-block__title {
         font-size: 1.4em;
         margin-bottom: 6px;
+    }
+
+    .news-block__date {}
+    .news-block__content {}
+
+    .news-block__actions {
+        margin-top: 10px;
     }
 }

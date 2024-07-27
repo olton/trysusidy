@@ -23,28 +23,28 @@ import Hero from "../components/Hero.astro"
             <div class="row">
                 <div class="cell-xl-3 cell-sm-6">
                     <div class="h-100 pt-10 pb-10 border bd-gray border-radius-20 text-center">
-                        <div class="display3 text-bold fg-grayMouse" data-role="counter" data-autostart="true" data-value="500">0</div>
+                        <div class="display3 text-bold fg-grayMouse" data-role="counter" data-autostart="true" data-value="504">0</div>
                         <div>Кількість квартир</div>
                     </div>
                 </div>
 
                 <div class="cell-xl-3 cell-sm-6">
                     <div class="h-100 pt-10 pb-10 border bd-gray border-radius-20 text-center">
-                        <div class="display3 text-bold fg-grayMouse" data-role="counter" data-autostart="true" data-value="1000">0</div>
+                        <div class="display3 text-bold fg-grayMouse" data-role="counter" data-autostart="true" data-value="40505">0</div>
                         <div>Житлова площа (м2)</div>
                     </div>
                 </div>
 
                 <div class="cell-xl-3 cell-sm-6">
                     <div class="h-100 pt-10 pb-10 border bd-gray border-radius-20 text-center">
-                        <div class="display3 text-bold fg-grayMouse" data-role="counter" data-autostart="true" data-value="10">0</div>
+                        <div class="display3 text-bold fg-grayMouse" data-role="counter" data-autostart="true" data-value="16">0</div>
                         <div>Кількість нежитлових приміщень</div>
                     </div>
                 </div>
 
                 <div class="cell-xl-3 cell-sm-6">
                     <div class="h-100 pt-10 pb-10 border bd-gray border-radius-20 text-center">
-                        <div class="display3 text-bold fg-grayMouse" data-role="counter" data-autostart="true" data-value="500">0</div>
+                        <div class="display3 text-bold fg-grayMouse" data-role="counter" data-autostart="true" data-value="2106">0</div>
                         <div>Не житлова площа (м2)</div>
                     </div>
                 </div>
@@ -55,11 +55,15 @@ import Hero from "../components/Hero.astro"
     <div class="container-fluid mb-10">
         <div class="container border-top bd-default pt-10">
             <div class="row">
-                <div class="cell-xl-8 border-right bd-default pr-10">
+                <div class="cell-xl-7 border-right bd-default pr-10">
                     <div class="h2 text-bold border-bottom bd-default pb-2">Останні новини</div>
                     <div class="news-block">
                         <div class="news-block__title">Загальні збори</div>
-                        <div>Заплановано проведення загальних зборів для коригування діючої ставки членських внесків та інших нагайних питань.</div>
+                        <div class="news-block__date"></div>
+                        <div class="news-block__content">Заплановано проведення загальних зборів для коригування діючої ставки членських внесків та інших нагайних питань.</div>
+                        <div class="news-block__actions">
+                            <a href="#" class="button secondary">Дізнатися більше...</a>
+                        </div>
                     </div>
                     <div class="news-block">
                         <div class="news-block__title">Збір на генератори для води та тепла</div>
@@ -67,19 +71,29 @@ import Hero from "../components/Hero.astro"
                     </div>
                 </div>
 
-                <div class="cell-xl-4">
+                <div class="cell-xl-5">
                     <div class="sidebar-group">
-                        <div class="text-bold border-bottom bd-default pb-1">Діюча ставка членських внесків</div>
-                        <div class="display3 text-center1">6.95 <small class="reduce-5">грн/м2</small></div>
+                        <div class="text-bold">Діюча ставка членських внесків</div>
+                        <div class="display3 text-center border bd-default p-4 border-radius-20 bg-cyan fg-white">6.95 <small class="reduce-5">грн/м2</small></div>
                     </div>
 
                     <div class="sidebar-group">
-                        <div class="text-bold border-bottom bd-default pb-1">Екстрені служби</div>
-                        <div class="display1 text-center1"><span class="mif-phone mr-1 reduce-4"></span>112</div>
+                        <div class="text-bold">Сервісні служби ОСББ</div>
+                        <div class="row mt-4">
+                            <div class="cell-6">
+                                <div>Диспетчер</div>
+                                <div><span class="mif-phone mr-1"></span>(095) 503-9099</div>
+                                <div><span class="mif-phone mr-1"></span>(098) 465-3919</div>
+                            </div>
+                            <div class="cell-6 bg-red fg-white p-4 border-radius-20">
+                                <div>Аварійна</div>
+                                <div><span class="mif-phone mr-1"></span>(044) 361-4863</div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="sidebar-group">
-                        <div class="text-bold border-bottom bd-default pb-1">Відкриті вакансії</div>
+                        <div class="text-bold">Відкриті вакансії</div>
                         <div>
                             <table class="table striped">
                                 <tbody>

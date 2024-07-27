@@ -4,13 +4,13 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "clean": "",
-    "build:metro": "shx rm -rf public/metroui/* && rollup -c",
+    "clean": "shx rm -rf public/metroui/*",
+    "build:metro": "npm run clean && rollup -c",
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "deploy": "npm run build && node deploy.js"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +19,7 @@
   "dependencies": {
     "@olton/datetime": "^3.0.5",
     "@olton/metroui": "^5.0.9",
+    "ftp-deploy": "^2.4.7",
     "mdast-util-to-string": "^4.0.0"
   },
   "devDependencies": {
