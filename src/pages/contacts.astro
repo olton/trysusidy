@@ -1,0 +1,37 @@
+---
+import Page from "../layouts/DefaultPage.astro"
+import {Image} from "astro:assets"
+import CustomersImage from "../../assets/customers.svg"
+---
+<Page title="Контакти - ОСББ Три сусіди 1">
+    <div class="container-fluid">
+        <div class="container">
+            <div class="hero p-0 h-auto">
+                <div class="row">
+                    <div class="cell-lg-7 p-10-md p-1-fs">
+                        <h1 class="text-bold">Контакти</h1>
+
+                        <div class="text-leader text-light mt-8">
+                            Маєш запитання, проблеми або зауваження?
+                            <p class="mt-4">Ми завжди до твоїх послуг!
+                        </div>
+
+                        <div class="mt-8">
+                            <div>Ми на звʼязку:</div>
+                            <div class="h3 text-bold">Пн-Пт з 09:00 до 18:00</div>
+                        </div>
+                    </div>
+                    <div class="cell-lg-5">
+                        <div>
+                            <Image src={CustomersImage} alt="" height="400"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="container border-top bd-default"></div>
+    </div>
+</Page>
