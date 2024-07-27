@@ -67,8 +67,10 @@ const cloudTags = tagsWeight(allPosts)
     </section>
 
     <section class="container-fluid mt-4">
-        <div class="container border-top bd-default pt-4">
-            <button class="button">Повернутися</button> <ShareThis/>
+        <div class="container border-top bd-default pt-4 ">
+            <div class="d-flex flex-row flex-align-center">
+                <ShareThis/>
+            </div>
         </div>
         <div class="container d-none">
             <RecentPosts posts={recentPosts} label="Recent posts:"/>
