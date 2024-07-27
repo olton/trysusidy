@@ -83,16 +83,33 @@ body {
     display: flex;
     flex-flow: column;
     margin-bottom: 20px;
+    padding-bottom: 30px;
+    &:not(:last-child) {
+        border-bottom: 1px dashed var(--border-color);
+    }
 
     .news-block__title {
         font-size: 1.4em;
         margin-bottom: 6px;
     }
 
-    .news-block__date {}
+    .news-block__date {
+        font-size: 12px;
+        color: var(--third-color);
+    }
     .news-block__content {}
 
     .news-block__actions {
-        margin-top: 10px;
+        margin-top: 20px;
+        font-size: 14px;
+
+        a {
+            text-decoration: none;
+        }
+
+        a:hover {
+            background-color: #0a0a0a;
+            color: #fff!important;
+        }
     }
 }
