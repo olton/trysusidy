@@ -8,7 +8,6 @@ import Rss from "../components/RssChanels.astro"
 
 const news = filterPosts(await getCollection("news", {limit: 5}))
 const vacancies = filterPosts(await getCollection("vacancies"))
-console.log(vacancies)
 ---
 <Page title="Три сусіди 1 - Об'єднання співвласників багатоквартирних будинків">
     <Hero/>
@@ -65,7 +64,6 @@ console.log(vacancies)
             <div class="row">
                 <div class="cell-xl-7 border-right bd-default pr-10">
                     <div class="h2 text-bold border-bottom bd-default pb-2 mb-6">Останні новини</div>
-
                     {
                         news.map(n => <NewsCard news={n}/>)
                     }
