@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content'
 import PageLayout from "../../layouts/Page.astro"
 import Pagination from "../../components/Pagination.astro";
 import NewsCard from "../../components/NewsCard.astro";
+import Rss from "../../components/RssChanels.astro"
 import {filterPosts} from "../../js/utils.js";
 
 const allNews = filterPosts(await getCollection('news'))
@@ -45,15 +46,7 @@ const { page } = Astro.props;
                         </h1>
 
                         <div class="blog-sidebar-group">
-                            <div class="text-bold border-bottom bd-default">RSS Feeds</div>
-                            <ul class="rss-feeds">
-                                <li><a href="/blog.xml">Наш Блог</a></li>
-                                <li><a href="/news.xml">Новини нашого ОСББ</a></li>
-                                <li><a href="/vacancies.xml">Вакансії</a></li>
-                            </ul>
-                            <div class="remark text-small p-4 border-radius-10">
-                                Використовуйте наш канал RSS, щоб бути в курсі того, що ми ділимося.
-                            </div>
+                            <Rss/>
                         </div>
                     </div>
                 </div>

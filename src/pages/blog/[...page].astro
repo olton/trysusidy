@@ -8,6 +8,7 @@ import PostLinks from "../../components/PostLinks.astro";
 import NewsLinks from "../../components/NewsLinks.astro";
 import CloudTags from "../../components/CloudTags.astro";
 import BlogSearch from "../../components/BlogSearch.astro";
+import Rss from "../../components/RssChanels.astro"
 
 const authors = await getCollection('authors')
 const allPosts = filterPosts(await getCollection('blog'))
@@ -78,14 +79,7 @@ const { page } = Astro.props;
                         </div>
 
                         <div class="blog-sidebar-group">
-                            <div class="text-bold border-bottom bd-default">RSS Feeds</div>
-                            <ul class="rss-feeds">
-                                <li><a href="/blog.xml">Блог</a></li>
-                                <li><a href="/news.xml">Новини</a></li>
-                            </ul>
-                            <div class="remark text-small p-4 border-radius-10">
-                                Використовуйте наш канал RSS, щоб бути в курсі того, що ми ділимося.
-                            </div>
+                            <Rss/>
                         </div>
                     </div>
                 </div>

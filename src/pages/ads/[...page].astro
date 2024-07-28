@@ -2,57 +2,58 @@
 import { getCollection } from 'astro:content'
 import PageLayout from "../../layouts/Page.astro"
 import Pagination from "../../components/Pagination.astro";
-import VacancyCard from "../../components/VacancyCard.astro";
+import AdsCard from "../../components/AdsCard.astro";
 import Rss from "../../components/RssChanels.astro"
 import {filterPosts} from "../../js/utils.js";
 
-const vacancies = filterPosts(await getCollection('vacancies'))
+const ads = filterPosts(await getCollection('ads'))
 export async function getStaticPaths({ paginate }) {
-    return paginate(filterPosts(await getCollection('vacancies')), {
+    return paginate(filterPosts(await getCollection('ads')), {
         pageSize: 20,
     })
 }
 const { page } = Astro.props;
 ---
-<PageLayout title="Новини ОСББ Три сусіди 1">
+<PageLayout title="Об'яви жільців ОСББ Три сусіди 1">
     <section class="container-fluid pb-4">
         <div class="container">
             <div class="row" style="--grid-gutter: 40px;">
                 <div class="cell-md-8 border-right bd-default pr-8">
                     <div class="">
                         {
-                            page.data.map( (v) => <VacancyCard vacancies={v} />)
+                            page.data.map( (v) => <AdsCard ads={v} />)
                         }
                     </div>
                     <div class="mt-4">
                         <Pagination length={page.lastPage}
                                     currentUrl={page.url.current}
                                     currentPage={page.currentPage}
-                                    firstUrl={`/vacancies`}
+                                    firstUrl={`/ads`}
                                     prevUrl={page.url.prev}
                                     nextUrl={page.url.next}
-                                    lastUrl={`/vacancies/${page.lastPage}`}
+                                    lastUrl={`/ads/${page.lastPage}`}
                         />
                     </div>
                 </div>
                 <div class="cell-md-4">
                     <div class="">
                         <h1 class="d-flex flex-row flex-nowrap flex-align-center">
-                            <span>Вакансії</span>
-                            <span class="posts-counter ml-auto">{vacancies.length}</span>
+                            <span>Об'яви</span>
+                            <span class="posts-counter ml-auto">{ads.length}</span>
                         </h1>
 
                         <div class="blog-sidebar-group">
-                            <div class="text-bold border-bottom bd-default">Контакти</div>
-                            <address class="mt-4 text-light">
-                                <div class="h5 text-bold">Голова правління</div>
-                                <div>Григорова Юлія Русланівна</div>
-                                <div><span class="mif-phone mr-1"></span>(068) 861-1229</div>
-                            </address>
+                            Ласкаво просимо до нашої дошки оголошень! Тут ви можете поділитись своєю об’явою з іншими мешканцями нашого будинку.
+                            <br/>
+                            <br/>
+                            <div class="p-6 bg-light border-radius-20 reduce-2">
+                                <span class="mif-email"></span>
+                                <b>Щоб опублікувати оголошення:</b> відправте його на адресу <a href="mailto:admin@trysusidy.kyiv.ua">admin@trysusidy.kyiv.ua</a>, вкажіть назву, ціну та опис, якщо є, додайте зображення і ваше оголошення буде опубліковане якнайшвидше!
+                            </div>
                         </div>
 
                         <div class="blog-sidebar-group">
-                            <Rss/>
+                            <Rss />
                         </div>
                     </div>
                 </div>

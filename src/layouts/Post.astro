@@ -10,6 +10,7 @@ import ShareThis from "../components/ShareThis.astro";
 import {filterPosts, tagsWeight} from "../js/utils.js";
 import RecentPosts from "../components/RecentPosts.astro";
 import CloudTags from "../components/CloudTags.astro";
+import Rss from "../components/RssChanels.astro"
 
 const { frontmatter, headings, timeToRead } = Astro.props
 const { title, date, author, description, cover, draft, category, tags, time = '1 min'} = frontmatter
@@ -59,6 +60,10 @@ const cloudTags = tagsWeight(allPosts)
                         <div class="mt-6">
                             <div class="text-bold border-bottom bd-default">Поділитися</div>
                             <ShareThis/>
+                        </div>
+
+                        <div class="blog-sidebar-group">
+                            <Rss/>
                         </div>
                     </div>
                 </div>

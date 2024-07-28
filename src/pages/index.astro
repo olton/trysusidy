@@ -4,6 +4,7 @@ import Hero from "../components/Hero.astro"
 import {filterPosts} from "../js/utils.js";
 import {getCollection} from "astro:content";
 import NewsCard from "../components/NewsCard.astro";
+import Rss from "../components/RssChanels.astro"
 
 const news = filterPosts(await getCollection("news", {limit: 5}))
 const vacancies = filterPosts(await getCollection("vacancies"))
@@ -113,6 +114,10 @@ console.log(vacancies)
                         <div class="border-top bd-default pt-4">
                             <a href="/vacancies">Детальніше...</a>
                         </div>
+                    </div>
+
+                    <div class="sidebar-group">
+                        <Rss/>
                     </div>
                 </div>
             </div>
