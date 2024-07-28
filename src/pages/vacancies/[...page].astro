@@ -4,6 +4,7 @@ import PageLayout from "../../layouts/Page.astro"
 import Pagination from "../../components/Pagination.astro";
 import VacancyCard from "../../components/VacancyCard.astro";
 import {filterPosts} from "../../js/utils.js";
+import PostLinks from "../../components/PostLinks.astro";
 
 const vacancies = filterPosts(await getCollection('vacancies'))
 export async function getStaticPaths({ paginate }) {
@@ -40,6 +41,15 @@ const { page } = Astro.props;
                             <span>Вакансії</span>
                             <span class="posts-counter ml-auto">{vacancies.length}</span>
                         </h1>
+
+                        <div class="blog-sidebar-group">
+                            <div class="text-bold border-bottom bd-default">Контакти</div>
+                            <address class="mt-4 text-light">
+                                <div class="h5 text-bold">Голова правління</div>
+                                <div>Григорова Юлія Русланівна</div>
+                                <div><span class="mif-phone mr-1"></span>(068) 861-1229</div>
+                            </address>
+                        </div>
 
                         <div class="blog-sidebar-group">
                             <div class="text-bold border-bottom bd-default">RSS Feeds</div>
