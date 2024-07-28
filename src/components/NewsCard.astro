@@ -8,11 +8,10 @@ const {title, date, description, important = true} = data
 const {Content} = await render()
 ---
 
-<article class="mb-5 border bd-default p-5 border-radius-10">
-    <div class="place-right reduce-2 text-muted">{datetime(date).format("DD, MMM YYYY")}</div>
-    <div class:list={["h3", "mb-4", {"fg-red": important}]}>{title}</div>
-
-    <div class="news-content">
+<article class="news-block">
+    <div class:list={["news-block__title", {"fg-red": important}]}>{title}</div>
+    <div class="news-block__date">{datetime(date).format("DD, MMM YYYY")}</div>
+    <div class="news-block__content">
         <Content/>
     </div>
 </article>

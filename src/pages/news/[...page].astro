@@ -17,10 +17,10 @@ export async function getStaticPaths({ paginate }) {
 const { page } = Astro.props;
 ---
 <PageLayout title="Новини ОСББ Три сусіди 1">
-    <section class="container-fluid pt-4 pb-4">
+    <section class="container-fluid pb-4">
         <div class="container">
             <div class="row" style="--grid-gutter: 40px;">
-                <div class="cell-md-8">
+                <div class="cell-md-8 border-right bd-default pr-8">
                     <div class="">
                         {
                             page.data.map( (news) => <NewsCard {news} />)
@@ -38,7 +38,7 @@ const { page } = Astro.props;
                     </div>
                 </div>
                 <div class="cell-md-4">
-                    <div class="border-left bd-default pl-4 pr-4">
+                    <div class="">
                         <h1 class="d-flex flex-row flex-nowrap flex-align-center">
                             <span>Новини</span>
                             <span class="posts-counter ml-auto">{allNews.length}</span>

@@ -1,6 +1,11 @@
 ---
 import Page from "../layouts/Page.astro"
 import Hero from "../components/Hero.astro"
+import {filterPosts} from "../js/utils.js";
+import {getCollection} from "astro:content";
+import NewsCard from "../components/NewsCard.astro";
+
+const news = filterPosts(await getCollection("news", {limit: 5}))
 ---
 <Page title="Три сусіди 1 - Об'єднання співвласників багатоквартирних будинків">
     <Hero/>
@@ -56,15 +61,11 @@ import Hero from "../components/Hero.astro"
         <div class="container border-top bd-default pt-10">
             <div class="row">
                 <div class="cell-xl-7 border-right bd-default pr-10">
-                    <div class="h2 text-bold border-bottom bd-default pb-2">Останні новини</div>
-                    <div class="news-block">
-                        <div class="news-block__title">Збір на генератори для води та тепла</div>
-                        <div class="news-block__date">26/07/2024</div>
-                        <div>Проводиться збір коштів на закупку та встановлення генераторів для забезпечення безперебійної роботи насосів тепло- та водо- постачання. Збір добровільний!</div>
-                        <div class="news-block__actions">
-                            <a href="/blog/zbir-na-generator" class="fg-dark border bd-dark p-2">Дізнатися більше...</a>
-                        </div>
-                    </div>
+                    <div class="h2 text-bold border-bottom bd-default pb-2 mb-6">Останні новини</div>
+
+                    {
+                        news.map(n => <NewsCard news={n}/>)
+                    }
                 </div>
 
                 <div class="cell-xl-5">
