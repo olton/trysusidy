@@ -1,8 +1,7 @@
 ---
-import {str} from "@olton/string"
 import {datetime} from "@olton/datetime/dist/datetime.es.js"
 import {Image} from "astro:assets";
-import {slugify} from "../js/utils.js";
+import {createExcerpt} from "../js/create-excerpt"
 const { post } = Astro.props
 const {id, slug, body, data, render} = post
 const {title, date, cover, draft, category, tags, time, description} = data
@@ -11,20 +10,18 @@ const { remarkPluginFrontmatter } = await render();
 
 <article class="mb-5 border-bottom bd-default pb-5">
     <div class="text-muted reduce-1 place-right">
-        <div class="datetime">{datetime(date).format("DD, MMM YYYY")} &bull; {remarkPluginFrontmatter.time}</div>
+        <div class="datetime">{datetime(date).format("DD/MM/YYYY", "ua")} &bull; {remarkPluginFrontmatter.time}</div>
     </div>
-
-    <a class="button small rounded" href=`/blog/categories/${slugify(category)}`>{str(category).capitalize()}</a>
 
     <Image src={cover.src} alt={cover.alt} width="1200" height="100" class="blog-cover" format="avif"/>
 
     <a class="h3 no-decor d-block mt-4" href=`/blog/${slug}`>{title}</a>
 
-    <div class="mt-4 mb-4" set:html={description+'...'}></div>
+    <div class="mt-4 mb-4" set:html={createExcerpt(body)}></div>
 
     <div class="d-flex flex-row flex-align-center">
         <div class="">
-            <a class="button secondary" href=`/blog/${slug}`>Читати далі...</a>
+            <a class="button outline bd-darkGray" href=`/blog/${slug}`>Читати далі...</a>
         </div>
         <div class="ml-auto">
             {tags && tags.map(tag => <a class="border bd-default p-1 reduce-3 border-radius-4 mr-1" href=`/blog/tags/${tag}`>#{tag}</a>)}
