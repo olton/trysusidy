@@ -5,6 +5,6 @@ export function readingTime() {
     return function (tree, { data }) {
         const textOnPage = toString(tree);
         const readingTime = getReadingTime(textOnPage);
-        data.astro.frontmatter.time = `Час читання займе ${Math.ceil(readingTime.minutes)} хвил.`;
+        data.astro.frontmatter.time = `Читання займе ${Math.ceil(readingTime.minutes)} хвил.`;
     };
 }
