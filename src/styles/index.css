@@ -113,3 +113,23 @@ body {
         }
     }
 }
+
+.vacancy-card {
+    display: flex;
+    flex-flow: column;
+    margin-bottom: 20px;
+    padding-bottom: 30px;
+    &:not(:last-child) {
+        border-bottom: 1px dashed var(--border-color);
+    }
+
+    .vacancy-card__title {
+        font-size: 1.4em;
+    }
+    .vacancy-card__salary {
+        font-size: 2em;
+    }
+    .vacancy-card__description {
+        margin-top: 10px;
+    }
+}

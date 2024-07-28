@@ -41,8 +41,19 @@ const news = defineCollection({
     })
 })
 
+const vacancies = defineCollection({
+    type: 'content',
+    schema: z.object({
+        title: z.string(),
+        description: z.string(),
+        salary: z.number(),
+        important: z.boolean().default(false),
+    })
+})
+
 export const collections = {
     authors,
     blog,
     news,
+    vacancies,
 }

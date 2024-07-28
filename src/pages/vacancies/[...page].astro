@@ -2,16 +2,13 @@
 import { getCollection } from 'astro:content'
 import PageLayout from "../../layouts/Page.astro"
 import Pagination from "../../components/Pagination.astro";
-import NewsCard from "../../components/NewsCard.astro";
+import VacancyCard from "../../components/VacancyCard.astro";
 import {filterPosts} from "../../js/utils.js";
 
-const allNews = filterPosts(await getCollection('news'))
-const news = filterPosts(await getCollection('news', {limit: 5}))
+const vacancies = filterPosts(await getCollection('vacancies'))
 export async function getStaticPaths({ paginate }) {
-    const posts = filterPosts(await getCollection('news'));
-
-    return paginate(posts, {
-        pageSize: 5,
+    return paginate(filterPosts(await getCollection('vacancies')), {
+        pageSize: 20,
     })
 }
 const { page } = Astro.props;
@@ -23,25 +20,25 @@ const { page } = Astro.props;
                 <div class="cell-md-8 border-right bd-default pr-8">
                     <div class="">
                         {
-                            page.data.map( (news) => <NewsCard {news} />)
+                            page.data.map( (v) => <VacancyCard vacancies={v} />)
                         }
                     </div>
-                    <div class="">
+                    <div class="mt-4">
                         <Pagination length={page.lastPage}
                                     currentUrl={page.url.current}
                                     currentPage={page.currentPage}
-                                    firstUrl={`/news`}
+                                    firstUrl={`/vacancies`}
                                     prevUrl={page.url.prev}
                                     nextUrl={page.url.next}
-                                    lastUrl={`/news/${page.lastPage}`}
+                                    lastUrl={`/vacancies/${page.lastPage}`}
                         />
                     </div>
                 </div>
                 <div class="cell-md-4">
                     <div class="">
                         <h1 class="d-flex flex-row flex-nowrap flex-align-center">
-                            <span>Новини</span>
-                            <span class="posts-counter ml-auto">{allNews.length}</span>
+                            <span>Вакансії</span>
+                            <span class="posts-counter ml-auto">{vacancies.length}</span>
                         </h1>
 
                         <div class="blog-sidebar-group">

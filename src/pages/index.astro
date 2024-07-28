@@ -6,6 +6,8 @@ import {getCollection} from "astro:content";
 import NewsCard from "../components/NewsCard.astro";
 
 const news = filterPosts(await getCollection("news", {limit: 5}))
+const vacancies = filterPosts(await getCollection("vacancies"))
+console.log(vacancies)
 ---
 <Page title="Три сусіди 1 - Об'єднання співвласників багатоквартирних будинків">
     <Hero/>
@@ -96,15 +98,20 @@ const news = filterPosts(await getCollection("news", {limit: 5}))
 
                     <div class="sidebar-group">
                         <div class="text-bold">Відкриті вакансії</div>
-                        <div>
-                            <table class="table striped">
-                                <tbody>
+                        <table class="table striped">
+                            <tbody>
+                        {
+                            vacancies.map(v => (
                                 <tr>
-                                    <td>Двірник</td>
-                                    <td>12,000 грн</td>
+                                    <td><div class:list={["vacancy-card__title", {"fg-red": v.data.important}]}>{v.data.title}</div></td>
+                                    <td class="text-right"><div class:list={["vacancy-card__salary"]}>{v.data.salary} грн</div></td>
                                 </tr>
-                                </tbody>
-                            </table>
+                            ))
+                        }
+                            </tbody>
+                        </table>
+                        <div class="border-top bd-default pt-4">
+                            <a href="/vacancies">Детальніше...</a>
                         </div>
                     </div>
                 </div>

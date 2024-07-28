@@ -1,0 +1,14 @@
+---
+const { vacancies } = Astro.props
+const {title, salary, important = false} = vacancies.data
+
+const {Content} = await vacancies.render()
+---
+
+<div class="vacancy-card">
+    <div class:list={["vacancy-card__title", {"fg-red": important}]}>{title}</div>
+    <div class:list={["vacancy-card__salary"]}>{salary} грн</div>
+    <div class="vacancy-card__description">
+        <Content/>
+    </div>
+</div>
