@@ -133,3 +133,12 @@ body {
         margin-top: 10px;
     }
 }
+
+table {
+    width: 100%;
+    border: 1px solid var(--border-color);
+    td {
+        padding: 10px;
+        border: 1px solid var(--border-color);
+    }
+}

@@ -15,9 +15,12 @@ const vacancies = filterPosts(await getCollection("vacancies"))
     <div class="container-fluidmb-10 highlight-block">
         <div class="container">
             <div class="text-light">
-                ОСББ "Три сусіди 1" розташовано на розі вулиць пр-т Петра Григоренка та Ганни Ахматової в 10 хвилинах від метро "Позняки".
-                ОСББ включає в собі три адреси пр-т П. Григоренка 24, Г. Ахматової 31 та Г. Ахматової 33 має затишний внутрішній двір з деревами та дитячим майданчиком.
-                Конструктивно це один будинок. В будинку розташовані поштове відділення Укрпошти (02055), Нової пошти (255), центр зору, та медичний центр Візіум, стоматологічні клініки, аптека.
+                ОСББ "Три сусіди 1" розташовано на розі вулиць пр-т Петра Григоренка та Ганни Ахматової в 10 хвилинах
+                від метро "Позняки".
+                ОСББ включає в собі три адреси пр-т П. Григоренка 24, Г. Ахматової 31 та Г. Ахматової 33 має затишний
+                внутрішній двір з деревами та дитячим майданчиком.
+                Конструктивно це один будинок. В будинку розташовані поштове відділення Укрпошти (02055), Нової пошти
+                (255), центр зору, та медичний центр Візіум, стоматологічні клініки, аптека.
                 Во дворі є підземний паркінг. Для зручності мешканців в під'їздах встановлено поштомати Нової пошти.
             </div>
         </div>
@@ -30,28 +33,36 @@ const vacancies = filterPosts(await getCollection("vacancies"))
             <div class="row">
                 <div class="cell-xl-3 cell-sm-6">
                     <div class="h-100 pt-10 pb-10 border bd-gray border-radius-20 text-center">
-                        <div class="display3 text-bold fg-grayMouse" data-role="counter" data- data-autostart="false" data-value="504">504</div>
+                        <div class="display3 text-bold fg-grayMouse" data-role="counter" data- data-autostart="false"
+                             data-value="504">504
+                        </div>
                         <div>Кількість квартир</div>
                     </div>
                 </div>
 
                 <div class="cell-xl-3 cell-sm-6">
                     <div class="h-100 pt-10 pb-10 border bd-gray border-radius-20 text-center">
-                        <div class="display3 text-bold fg-grayMouse" data-role="counter" data-autostart="false" data-value="40505">40,505</div>
+                        <div class="display3 text-bold fg-grayMouse" data-role="counter" data-autostart="false"
+                             data-value="40505">40,505
+                        </div>
                         <div>Житлова площа (м2)</div>
                     </div>
                 </div>
 
                 <div class="cell-xl-3 cell-sm-6">
                     <div class="h-100 pt-10 pb-10 border bd-gray border-radius-20 text-center">
-                        <div class="display3 text-bold fg-grayMouse" data-role="counter" data-autostart="false" data-value="16">16</div>
+                        <div class="display3 text-bold fg-grayMouse" data-role="counter" data-autostart="false"
+                             data-value="16">16
+                        </div>
                         <div>Кількість нежитлових приміщень</div>
                     </div>
                 </div>
 
                 <div class="cell-xl-3 cell-sm-6">
                     <div class="h-100 pt-10 pb-10 border bd-gray border-radius-20 text-center">
-                        <div class="display3 text-bold fg-grayMouse" data-role="counter" data-autostart="false" data-value="2106">2,106</div>
+                        <div class="display3 text-bold fg-grayMouse" data-role="counter" data-autostart="false"
+                             data-value="2106">2,106
+                        </div>
                         <div>Не житлова площа (м2)</div>
                     </div>
                 </div>
@@ -63,21 +74,51 @@ const vacancies = filterPosts(await getCollection("vacancies"))
         <div class="container border-top bd-default pt-10">
             <div class="row">
                 <div class="cell-xl-7 border-right bd-default pr-10">
+                    <div class="h4 fg-red text-bold border-bottom bd-default pb-2 mb-6">Реквізити для добровільного внеску на альтернативні джерела живлення</div>
+                    <table class="table striped mb-10">
+                        <tbody>
+                        <tr>
+                            <td>Назва</td>
+                            <td><strong>ОСББ “Три сусіди 1”</strong></td>
+                        </tr>
+                        <tr>
+                            <td>ЄДРПОУ</td>
+                            <td><strong>42337908</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Рахунок</td>
+                            <td><strong>UA383052990000026007046712057</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Банк</td>
+                            <td><strong>АТ КБ “Приватбанк”</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Призначення</td>
+                            <td><strong>Добровільний внесок на придбання альтернативних джерел живлення
+                                (ОР-ХХХХ)</strong></td>
+                        </tr>
+                        </tbody>
+                    </table>
+
                     <div class="h2 text-bold border-bottom bd-default pb-2 mb-6">Останні новини</div>
                     {
-                        news.map(n => <NewsCard news={n}/>)
+                        news.map(n =>
+                                <NewsCard news={n}/>)
                     }
                 </div>
 
                 <div class="cell-xl-5">
                     <div class="sidebar-group">
                         <div class="text-bold">Зібрано на генератор</div>
-                        <div class="display3 text-center border bd-default p-4 border-radius-20 bg-green fg-white">290,092 <small class="reduce-5">грн</small></div>
+                        <div class="display3 text-center border bd-default p-4 border-radius-20 bg-green fg-white">
+                            306,508 <small class="reduce-5">грн</small></div>
                     </div>
 
                     <div class="sidebar-group">
                         <div class="text-bold">Діюча ставка членських внесків</div>
-                        <div class="display3 text-center border bd-default p-4 border-radius-20">6.95 <small class="reduce-5">грн/м2</small></div>
+                        <div class="display3 text-center border bd-default p-4 border-radius-20">6.95 <small
+                                class="reduce-5">грн/м2</small></div>
                     </div>
 
                     <div class="sidebar-group">
@@ -99,14 +140,18 @@ const vacancies = filterPosts(await getCollection("vacancies"))
                         <div class="text-bold">Відкриті вакансії</div>
                         <table class="table striped">
                             <tbody>
-                        {
-                            vacancies.map(v => (
-                                <tr>
-                                    <td><div class:list={["vacancy-card__title", {"fg-red": v.data.important}]}>{v.data.title}</div></td>
-                                    <td class="text-right"><div class:list={["vacancy-card__salary"]}>{v.data.salary} грн</div></td>
-                                </tr>
-                            ))
-                        }
+                            {
+                                vacancies.map(v => (
+                                        <tr>
+                                            <td>
+                                                <div class:list={["vacancy-card__title", {"fg-red": v.data.important}]}>{v.data.title}</div>
+                                            </td>
+                                            <td class="text-right">
+                                                <div class:list={["vacancy-card__salary"]}>{v.data.salary} грн</div>
+                                            </td>
+                                        </tr>
+                                ))
+                            }
                             </tbody>
                         </table>
                         <div class="border-top bd-default pt-4">
