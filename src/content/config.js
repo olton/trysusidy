@@ -57,7 +57,11 @@ const ads = defineCollection({
         title: z.string(),
         price: z.number(),
         description: z.string(),
-        urgently: z.boolean().default(false)
+        urgently: z.boolean().default(false),
+        date: z.date(),
+        color: z.string().default("normal"),
+        contact: z.string().optional(),
+        phone: z.string().optional(),
     })
 })
 

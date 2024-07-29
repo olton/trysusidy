@@ -5,9 +5,11 @@ import {filterPosts} from "../js/utils.js";
 import {getCollection} from "astro:content";
 import NewsCard from "../components/NewsCard.astro";
 import Rss from "../components/RssChanels.astro"
+import AdsCard from "../components/AdsCard.astro";
 
 const news = filterPosts(await getCollection("news", {limit: 5}))
 const vacancies = filterPosts(await getCollection("vacancies"))
+const ads = filterPosts(await getCollection("ads"), {limit: 5})
 ---
 <Page title="Три сусіди 1 - Об'єднання співвласників багатоквартирних будинків">
     <Hero/>
@@ -16,7 +18,7 @@ const vacancies = filterPosts(await getCollection("vacancies"))
         <div class="container">
             <div class="text-light">
                 ОСББ "Три сусіди 1" розташовано на розі вулиць пр-т Петра Григоренка та Ганни Ахматової в 10 хвилинах
-                від метро "Позняки". Хоча конструктивно це один будинок ОСББ об'єднує 3 адреси: пр-т П. Григоренка 24, Г. Ахматової 31 та Г. Ахматової 33.
+                від метро "Позняки". Хоча конструктивно це один будинок, ОСББ об'єднує 3 адреси: пр-т П. Григоренка 24, Г. Ахматової 31 та Г. Ахматової 33.
                 Будинок має затишний внутрішній двір з деревами та дитячим майданчиком.
                  В будинку розташовані поштове відділення Укрпошти (02055), Нової пошти
                 (255), центр зору, та медичний центр Візіум, стоматологічні клініки, аптека.
@@ -103,11 +105,19 @@ const vacancies = filterPosts(await getCollection("vacancies"))
                         </tbody>
                     </table>
 
-                    <div class="h2 text-bold border-bottom bd-default pb-2 mb-6">Останні новини</div>
+                    <div class="h3 text-bold border-bottom bd-default pb-2 mb-6">Новини нашого ОСББ</div>
                     {
                         news.map(n =>
                                 <NewsCard news={n}/>)
                     }
+
+                    <div class="h3 text-bold border-bottom bd-default pb-2 mb-6">Останнє з дошки оголошень</div>
+                    <div class="ads-board">
+                    {
+                        ads.map(n =>
+                                <AdsCard ads={n} pin="true"/>)
+                    }
+                    </div>
                 </div>
 
                 <div class="cell-xl-5">

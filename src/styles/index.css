@@ -132,6 +132,40 @@ body {
     .vacancy-card__description, .ads-card__description {
         margin-top: 10px;
     }
+    .ads-card__contacts {
+        margin-top: 10px;
+        padding-top: 10px;
+        border-top: 1px solid var(--border-color);
+    }
+}
+
+.ads-board {
+    display: flex;
+    flex-flow: row;
+    font-size: 0.8em;
+    gap: 40px;
+
+    .ads-card {
+        width: 50%;
+        border: 1px solid var(--border-color);
+        padding: 16px;
+        box-shadow: 2px 2px 2px var(--border-color);
+    }
+    .vacancy-card__title, .ads-card__title {
+        font-size: 1.4em;
+    }
+    .vacancy-card__salary, .ads-card__price {
+        font-size: 2em;
+    }
+    .vacancy-card__description, .ads-card__description {
+        margin-top: 10px;
+    }
+
+    .pin {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
 }
 
 table {

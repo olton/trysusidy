@@ -1,14 +1,24 @@
 ---
-const { ads } = Astro.props
-const {title, price = 0, urgently = false} = ads.data
-console.log(price > 0)
+import {Image} from "astro:assets"
+import pinImage from "../../assets/pin.png"
+import {datetime} from "@olton/datetime";
+const { ads, pin = false } = Astro.props
+const {title, price = 0, urgently = false, color = "normal", date, contact = "Василій Пупкін", phone = "(xxx) xxx-xxxx"} = ads.data
 const {Content} = await ads.render()
 ---
 
-<div class="ads-card">
+<div class:list={["ads-card", color]}>
+    <div class:list={["pin", {"d-none": !pin}]}>
+        <Image src={pinImage} alt="" height="48"/>
+    </div>
     <div class:list={["ads-card__title", {"fg-red": urgently}]}>{title}</div>
+    <div class:list={["ads-card__date"]}>{datetime(date).format("DD/MM/YYYY")}</div>
     <div class:list={["ads-card__price", {"d-none": price === 0}]}>{price} грн</div>
     <div class="ads-card__description">
         <Content/>
+    </div>
+    <div class="ads-card__contacts">
+        <div>Контакт: {contact}</div>
+        <div>Телефон: {phone}</div>
     </div>
 </div>
