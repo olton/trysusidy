@@ -56,7 +56,6 @@ const ads = defineCollection({
     schema: z.object({
         title: z.string(),
         price: z.number(),
-        description: z.string(),
         urgently: z.boolean().default(false),
         date: z.date(),
         color: z.string().default("normal"),
