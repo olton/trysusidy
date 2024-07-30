@@ -122,9 +122,18 @@ const ads = filterPosts(await getCollection("ads"), {limit: 5})
 
                 <div class="cell-xl-5">
                     <div class="sidebar-group">
-                        <div class="text-bold">Зібрано на генератор</div>
-                        <div class="display3 text-center border bd-default p-4 border-radius-20 bg-green fg-white">
-                            340,784 <small class="reduce-5">грн</small></div>
+                        <div class="h3 text-bold">Збір на генератор</div>
+                        <div class="text-center border bd-default p-4 border-radius-20 op-green fg-white d-flex flex-column flex-justify-center flex-align-center">
+                            <div data-role="donut" data-size="200" data-value="340784" data-total="2500000" data-stroke="#e8e8e8" data-fill="green"></div>
+                            <div class="text-center mt-4">
+                                <div>Ціль: 2,500,000 грн</div>
+                            </div>
+                            <div class="text-center mt-4">
+                                вже зібрано:
+                            </div>
+                            <div class="display3 text-bold mt-4 fg-darkGreen">340,784</div>
+                            <small class="text-leader">грн</small>
+                        </div>
                     </div>
 
                     <div class="sidebar-group">
