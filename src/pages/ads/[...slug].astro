@@ -1,0 +1,56 @@
+---
+import {datetime} from "@olton/datetime/dist/datetime.es.js";
+import { getCollection } from 'astro:content';
+import Layout from "../../layouts/Page.astro";
+import ShareThis from "../../components/ShareThis.astro";
+import Rss from "../../components/RssChanels.astro";
+
+
+export async function getStaticPaths() {
+    const adsEntries = await getCollection('ads');
+    return adsEntries.map(entry => ({
+        params: { slug: entry.slug }, props: { entry },
+    }));
+}
+
+const { entry } = Astro.props;
+const { Content, headings, remarkPluginFrontmatter } = await entry.render();
+const {title, price, urgently, date, color, contact, phone} = entry.data
+---
+
+<Layout>
+    <section class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="cell-md-8 border-right bd-default pr-8">
+                    <div>
+                        <a href="#" class="h3 history-back no-decor"><span class="mif-arrow-left"></span> Назад</a>
+                    </div>
+                    <div class="ads-card mt-10">
+                        <div class:list={["ads-card__title", {"fg-red": urgently}]}>{title}</div>
+                        <div class:list={["ads-card__date"]}>{datetime(date).format("DD/MM/YYYY")}</div>
+                        <div class:list={["ads-card__price mt-4 mb-4", {"d-none": price === 0}]}>{price} грн</div>
+                        <div class="ads-card__contacts">
+                            <div>Контакт: {contact}</div>
+                            <div>Телефон: {phone}</div>
+                        </div>
+                        <div class="ads-card__description mt-4">
+                            <Content/>
+                        </div>
+                    </div>
+                </div>
+                <div class="cell-md-4">
+                    <div class="blog-side-bar">
+                        <div class="text-bold border-bottom bd-default">Поділитися</div>
+                        <ShareThis/>
+                    </div>
+
+                    <div class="blog-sidebar-group mt-4">
+                        <Rss />
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</Layout>

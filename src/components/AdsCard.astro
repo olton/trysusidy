@@ -5,6 +5,7 @@ import {datetime} from "@olton/datetime";
 const { ads, pin = false } = Astro.props
 const {title, price = 0, urgently = false, color = "normal", date, contact = "Василій Пупкін", phone = "(xxx) xxx-xxxx"} = ads.data
 const {Content} = await ads.render()
+import {createExcerpt} from "../js/create-excerpt"
 ---
 
 <div class:list={["ads-card", color]}>
@@ -15,10 +16,9 @@ const {Content} = await ads.render()
     <div class:list={["ads-card__date"]}>{datetime(date).format("DD/MM/YYYY")}</div>
     <div class:list={["ads-card__price", {"d-none": price === 0}]}>{price} грн</div>
     <div class="ads-card__description">
-        <Content/>
+        <div class="mt-4 mb-4" set:html={createExcerpt(ads.body)}></div>
     </div>
-    <div class="ads-card__contacts">
-        <div>Контакт: {contact}</div>
-        <div>Телефон: {phone}</div>
+    <div class="ads-card__actions">
+        <a href=`/ads/${ads.slug}` class="button outline bd-dark">Більше інформації</a>
     </div>
 </div>
