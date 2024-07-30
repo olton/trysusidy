@@ -170,13 +170,16 @@ const ads = filterPosts(await getCollection("ads"), {limit: 5})
                                             <td class="text-right">
                                                 <div class:list={["vacancy-card__salary"]}>{v.data.salary} грн</div>
                                             </td>
+                                            <td class="text-center">
+                                                <span class="mif-star-full mif-2x ani-flash"></span>
+                                            </td>
                                         </tr>
                                 ))
                             }
                             </tbody>
                         </table>
                         <div class="border-top bd-default pt-4">
-                            <a href="/vacancies">Детальніше...</a>
+                            <a href="/vacancies" class="button outline bd-dark">Детальніше...</a>
                         </div>
                     </div>
 
