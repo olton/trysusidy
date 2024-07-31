@@ -1,0 +1,87 @@
+---
+import {Image} from "astro:assets"
+
+import Page from "../layouts/Page.astro"
+import PrivatLogo from "../../assets/privatbank.jpg";
+import OshadLogo from "../../assets/oshadbank.jpg";
+---
+<Page title="Інформація про ОСББ Три сусіди 1">
+    <div class="container-fluid mb-10">
+        <div class="container">
+            <div class="row" style="--grid-gutter: 80px">
+                <div class="cell-xl-7">
+                    <h1>Про ОСББ</h1>
+                    <h4>Загальна інформація:</h4>
+                    <div>
+                        <div>Назва:</div>
+                        <div class="text-leader2 text-bold">Об'єднання співвласників багатоквартирного будинку "Три сусіди 1"</div>
+                    </div>
+                    <div class="mt-4">
+                        <div>Код ЄДРПОУ:</div>
+                        <div class="text-leader2 text-bold">42337908</div>
+                    </div>
+                    <div class="mt-4">
+                        <div>Дата реєстрації:</div>
+                        <div class="text-leader2 text-bold">30.07.2018</div>
+                    </div>
+                    <div class="mt-4">
+                        <div>Адреса реєстрації:</div>
+                        <div class="text-leader2 text-bold">02055, м. Київ, вул. Г. Ахматової, 31</div>
+                    </div>
+                    <div class="mt-4">
+                        <div>Уповноважена особа:</div>
+                        <div class="text-leader2 text-bold">Григорова Юлія Русланівна</div>
+                        <div><span class="mif-phone mr-2"></span>(068) 861-1229</div>
+                    </div>
+                    <div class="mt-4">
+                        <div>Головний бухгалтер:</div>
+                        <div class="text-leader2 text-bold">Чала Галина Борисівна</div>
+                        <div><span class="mif-phone mr-2"></span>(068) 244-3874</div>
+                    </div>
+                    <div class="mt-4">
+                        <div>Орган керування юридичної особи:</div>
+                        <div class="text-leader2 text-bold">Діє на підставі установчих документів, затверджених засновниками (учасниками)</div>
+                    </div>
+                    <div class="mt-4">
+                        <div>Види діяльності:</div>
+                        <div class="text-leader2 text-bold">КВЕД 81.10  Комплексне обслуговування об'єктів</div>
+                        <div class="text-leader2 text-bold">КВЕД 68.20  Надання в оренду й експлуатацію власного чи орендованого нерухомого майна</div>
+                    </div>
+                </div>
+                <div class="cell-xl-5 border-left bd-default pl-8">
+                    <div>
+                        <h4>Розрахункові рахунки:</h4>
+                        <div class="d-flex">
+                            <Image src={PrivatLogo} alt="" width="72" height="72"/>
+                            <address class="ml-4">
+                                <div>Код ЄДРПОУ 42337908</div>
+                                <div>UA533052990000026001006702304</div>
+                                <div>АТ КБ "Приватбанк"</div>
+                            </address>
+                        </div>
+
+                        <div class="d-flex">
+                            <Image src={OshadLogo} alt="" width="72" height="72"/>
+                            <address class="ml-4">
+                                <div>Код ЄДРПОУ 42337908</div>
+                                <div>UA803226690000026004300656799</div>
+                                <div>"Ощадбанк"</div>
+                            </address>
+                        </div>
+                    </div>
+                    <div class="mt-10">
+                        <h4>Рахунок для добровільного внеску на альтернативні джерела енергії:</h4>
+                        <div class="d-flex">
+                            <Image src={PrivatLogo} alt="" width="72" height="72"/>
+                            <address class="ml-4">
+                                <div>Код ЄДРПОУ 42337908</div>
+                                <div>UA383052990000026007046712057</div>
+                                <div>АТ КБ "Приватбанк"</div>
+                            </address>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</Page>
