@@ -1,0 +1,136 @@
+---
+import Page from "../layouts/Page.astro"
+import Assembly from "../components/assembly.astro";
+---
+<Page>
+    <div class="container-fluid mb-10">
+        <div class="container">
+            <div class="row" style="--grid-gutter: 80px">
+                <div class="cell-xl-7">
+                    <div class="text-leader2 mb-10">
+                        Терміновий збір на альтернативні джерела живлення тепло-, водо-постачання, забезпечення мінімального освітлення та роботи ліфтів в періоди відключення світла.
+                    </div>
+
+                    <h6>Г. Ахматової, буд. 33-1</h6>
+                    <table class="table subcompact striped border cell-border pays-table" id="ah33_1">
+                        <tbody></tbody>
+                    </table>
+
+                    <h6 class="mt-10">Г. Ахматової, буд. 33-2</h6>
+                    <table class="table subcompact striped border cell-border pays-table" id="ah33_2">
+                        <tbody></tbody>
+                    </table>
+
+                    <h6 class="mt-10">Г. Ахматової, буд. 31-1</h6>
+                    <table class="table subcompact striped border cell-border pays-table" id="ah31_1">
+                        <tbody></tbody>
+                    </table>
+
+                    <h6 class="mt-10">Г. Ахматової, буд. 31-2</h6>
+                    <table class="table subcompact striped border cell-border pays-table" id="ah31_2">
+                        <tbody></tbody>
+                    </table>
+
+                    <h6 class="mt-10">Г. Ахматової, буд. 31-3</h6>
+                    <table class="table subcompact striped border cell-border pays-table" id="ah31_3">
+                        <tbody></tbody>
+                    </table>
+
+                    <h6 class="mt-10">Г. Ахматової, буд. 31-4</h6>
+                    <table class="table subcompact striped border cell-border pays-table" id="ah31_4">
+                        <tbody></tbody>
+                    </table>
+
+                    <h6 class="mt-10">П. Григоренка, буд. 24-1</h6>
+                    <table class="table subcompact striped border cell-border pays-table" id="gr24_1">
+                        <tbody></tbody>
+                    </table>
+
+                    <h6 class="mt-10">П. Григоренка, буд. 24-2</h6>
+                    <table class="table subcompact striped border cell-border pays-table" id="gr24_2">
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <div class="cell-xl-5">
+                    <div class="sidebar-group">
+                        <Assembly
+                                title="Збір на генератори"
+                                background="op-green"
+                                color="fg-darkGreen"
+                                total="2500000"
+                                current="363369"
+                                stroke="#e8e8e8"
+                                fill="green"
+                        />
+                    </div>
+
+                    <div class="sidebar-group">
+                        <h4>Легенда</h4>
+                        <table>
+                            <tr>
+                                <td class="bg-green"></td>
+                                <td>Повна оплата</td>
+                            </tr>
+                            <tr>
+                                <td class="bg-orange"></td>
+                                <td>Часткова оплата</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</Page>
+<script>
+    const addrLength = {
+        ah31_1: [1, 64],
+        ah31_2: [65, 68],
+        ah31_3: [133, 68],
+        ah31_4: [201, 64],
+        ah33_1: [1, 60],
+        ah33_2: [61, 60],
+        gr24_1: [1, 60],
+        gr24_2: [61, 60],
+    }
+
+    const payouts = {
+        ah31_1: [[9, 21, 29, 38, 39, 42], []],
+        ah31_2: [[68, 75, 82, 99, 115, 125, 127, 131], [73, 76, 101, 112, 128]],
+        ah31_3: [[133, 148, 163, 169, 188, 191, 193, 195, 197, 198, 200], [192, 194]],
+        ah31_4: [[238, 247, 253, 254, 255], [248]],
+        ah33_1: [[14, 29, 33, 37, 38, 41, 42, 46, 50, 51], [12]],
+        ah33_2: [[65, 69, 83, 105, 117, 118], [72, 84, 86, 112]],
+        gr24_1: [[25, 27, 39, 42, 43, 56, 57, 60], [13, 49]],
+        gr24_2: [[63, 71, 73, 82, 83, 84, 86, 120], [96]],
+    }
+
+
+    let addr = ""
+
+    for(let l in addrLength){
+        const table = $(`#${l} tbody`)
+        const pays = payouts[l]
+        let tr
+        let index = 1
+        for(let i = addrLength[l][0]; i < addrLength[l][0]+addrLength[l][1]; i++) {
+            if (index === 1) {
+                tr = $("<tr>").appendTo(table)
+            }
+
+            let td = $("<td>").text(i).appendTo(tr)
+
+            if (pays[0].includes(i)) {
+                td.addClass("bg-green fg-white")
+            } else if (pays[1].includes(i)) {
+                td.addClass("bg-orange fg-white")
+            }
+
+            index++
+
+            if (index === 9) {
+                index = 1
+            }
+        }
+    }
+</script>

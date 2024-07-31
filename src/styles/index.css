@@ -74,9 +74,10 @@ body {
     line-height: 1.4;
 }
 
-.sidebar-group {
-    padding: 20px;
-    border-bottom: 1px solid var(--border-color);
+.sidebar-group + .sidebar-group {
+    margin-top: 20px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 20px;
 }
 
 .news-block {
@@ -215,5 +216,13 @@ table {
     overflow-x: auto;
     table {
         width: auto!important;
+    }
+}
+
+.pays-table {
+    td {
+        text-align: center;
+        line-height: 1.4em;
+        border: 1px solid var(--border-color)!important;
     }
 }

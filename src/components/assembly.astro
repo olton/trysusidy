@@ -1,0 +1,16 @@
+---
+import {num_fmt} from "../js/format.js"
+const {title = 'Збір', background = '', color = '', total = 100, current = 0, stroke, fill} = Astro.props
+---
+<div class:list={["text-center", "border bd-default border-radius-20", "p-4", "d-flex flex-column flex-justify-center flex-align-center", background]}>
+    <div class:list={["h3 text-bold",  color]}>{title}</div>
+    <div data-role="donut" data-size="200" data-value={current} data-total={total} data-stroke={stroke} data-fill={fill}></div>
+    <div class="text-center mt-4">
+        <div>Мета: <b>{num_fmt(total, ",")}</b> грн</div>
+    </div>
+    <div class="text-center mt-4">
+        вже зібрано:
+    </div>
+    <div class="display3 text-bold mt-4 fg-darkGreen">{num_fmt(current, ",")}</div>
+    <small class="text-leader">грн</small>
+</div>

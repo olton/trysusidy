@@ -6,6 +6,7 @@ import {getCollection} from "astro:content";
 import NewsCard from "../components/NewsCard.astro";
 import Rss from "../components/RssChanels.astro"
 import AdsCard from "../components/AdsCard.astro";
+import Assembly from "../components/assembly.astro";
 
 const news = filterPosts(await getCollection("news", {limit: 5}))
 const vacancies = filterPosts(await getCollection("vacancies"))
@@ -124,18 +125,15 @@ const ads = filterPosts(await getCollection("ads"), {limit: 5})
 
                 <div class="cell-xl-5">
                     <div class="sidebar-group">
-                        <div class="text-center border bd-default p-4 border-radius-20 op-green d-flex flex-column flex-justify-center flex-align-center">
-                            <div class="h3 text-bold fg-darkGreen">Збір на генератори</div>
-                            <div data-role="donut" data-size="200" data-value="363369" data-total="2500000" data-stroke="#e8e8e8" data-fill="green"></div>
-                            <div class="text-center mt-4">
-                                <div>Мета: <b>2,500,000</b> грн</div>
-                            </div>
-                            <div class="text-center mt-4">
-                                вже зібрано:
-                            </div>
-                            <div class="display3 text-bold mt-4 fg-darkGreen">363,369</div>
-                            <small class="text-leader">грн</small>
-                        </div>
+                        <Assembly
+                                title="Збір на генератори"
+                                background="op-green"
+                                color="fg-darkGreen"
+                                total="2500000"
+                                current="363369"
+                                stroke="#e8e8e8"
+                                fill="green"
+                        />
                     </div>
 
                     <div class="sidebar-group">
