@@ -1,9 +1,12 @@
 ---
+import {Image} from "astro:assets"
+import PrivatLogo from "../../assets/privatbank.jpg"
+import OshadLogo from "../../assets/oshadbank.jpg"
 ---
 <footer class="page-footer container-fluid">
     <div class="container">
         <div class="row mt-10 mb-10">
-            <div class="cell-lg-6">
+            <div class="cell-lg-5">
                 <h5>Приймальні дні громадян:</h5>
                 <div class="text-light enlarge-2">
                     <div class="fg-yellow text-bold">Середа</div>
@@ -25,31 +28,68 @@
                     <div><span class="mif-envelop mr-1"></span><a class="fg-white" href="mailto:admin@trysusidy.kyiv.ua">admin@trysusidy.kyiv.ua</a></div>
                 </div>
             </div>
-            <div class="cell-lg-2">
-                <h5>Про ОСББ</h5>
-                <ul class="unstyled-list">
-                    <li><a class="fg-white" href="#">Головна</a></li>
-                    <li class="mt-2"><a class="fg-white" href="#">Документи</a></li>
-                    <li class="mt-2"><a class="fg-white" href="#">Правління</a></li>
-                    <li class="mt-2"><a class="fg-white" href="/vacancies">Вакансії</a></li>
-                </ul>
-            </div>
-            <div class="cell-lg-2">
-                <h5>Корисне</h5>
-                <ul class="unstyled-list">
-                    <li><a class="fg-white" href="#">Загальні питання</a></li>
-                    <li class="mt-2"><a class="fg-white" href="#">Фінансові питання</a></li>
-                    <li class="mt-2"><a class="fg-white" href="/news">Новини</a></li>
-                    <li class="mt-2"><a class="fg-white" href="#">Результати загальних зборів</a></li>
-                    <li class="mt-2"><a class="fg-white" href="#">Звіти</a></li>
-                </ul>
-            </div>
-            <div class="cell-lg-2">
-                <h5>Послуги ОСББ</h5>
-                <ul class="unstyled-list">
-                    <li class="mt-2"><a class="fg-white" href="#">Видача довідок</a></li>
-                    <li class="mt-2"><a class="fg-white" href="#">Задати запитання</a></li>
-                </ul>
+            <div class="cell-lg-7">
+                <div class="row w-100" style="--grid-gutter: 10px;">
+                    <div class="cell-lg-4">
+                        <h5>Про ОСББ</h5>
+                        <ul class="unstyled-list">
+                            <li><a class="fg-white" href="#">Головна</a></li>
+                            <li class="mt-2"><a class="fg-white" href="#">Документи</a></li>
+                            <li class="mt-2"><a class="fg-white" href="#">Правління</a></li>
+                            <li class="mt-2"><a class="fg-white" href="/vacancies">Вакансії</a></li>
+                        </ul>
+                    </div>
+                    <div class="cell-lg-4">
+                        <h5>Корисне</h5>
+                        <ul class="unstyled-list">
+                            <li><a class="fg-white" href="#">Загальні питання</a></li>
+                            <li class="mt-2"><a class="fg-white" href="#">Фінансові питання</a></li>
+                            <li class="mt-2"><a class="fg-white" href="/news">Новини</a></li>
+                            <li class="mt-2"><a class="fg-white" href="#">Результати загальних зборів</a></li>
+                            <li class="mt-2"><a class="fg-white" href="#">Звіти</a></li>
+                        </ul>
+                    </div>
+                    <div class="cell-lg-4">
+                        <h5>Послуги ОСББ</h5>
+                        <ul class="unstyled-list">
+                            <li class="mt-2"><a class="fg-white" href="#">Видача довідок</a></li>
+                            <li class="mt-2"><a class="fg-white" href="#">Задати запитання</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-6">
+                    <h5>Банківські реквізити</h5>
+                    <div class="row">
+                        <div class="cell-xl-6">
+                            <div class="d-flex">
+                                <Image src={PrivatLogo} alt="" width="48" height="48"/>
+                                <address class="reduce-1 ml-2">
+                                    <div>Код ЄДРПОУ 42337908</div>
+                                    <div>UA533052990000026001006702304</div>
+                                    <div>АТ КБ "Приватбанк"</div>
+                                </address>
+                            </div>
+                        </div>
+                        <div class="cell-xl-6">
+                            <div class="d-flex">
+                                <Image src={OshadLogo} alt="" width="48" height="48"/>
+                                <address class="reduce-1 ml-2">
+                                    <div>Код ЄДРПОУ 42337908</div>
+                                    <div>UA803226690000026004300656799</div>
+                                    <div>"Ощадбанк"</div>
+                                </address>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6">
+                    <h5>Юридична адреса:</h5>
+                    <address>
+
+                    </address>
+                </div>
             </div>
         </div>
     </div>
