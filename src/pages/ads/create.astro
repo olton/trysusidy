@@ -1,0 +1,72 @@
+---
+import Page from "../../layouts/Page.astro"
+import Rss from "../../components/RssChanels.astro";
+---
+<Page>
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row" style="--grid-gutter: 40px">
+                <div class="cell-xl-8">
+                    <h2>Створення об'яви</h2>
+                    <form action="javascript:" data-role="validator" onsubmit="sendRequestForAdsBlock(this)">
+                        <div class="form-group">
+                            <input name="name" data-validate="required" type="text" data-role="input" data-label="Ваше Ім'я та призвище" data-prepend="<span class='mif-user'>" value=""/>
+                            <span class="invalid_feedback">Введіть своє ім'я</span>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="cell-md-6">
+                                    <input name="email" data-validate="required email" type="text" data-role="input" data-label="Ваша email адреса" data-prepend="<span class='mif-email'>" value=""/>
+                                    <span class="invalid_feedback">Введіть коректне значення для email адреси</span>
+                                </div>
+                                <div class="cell-md-6">
+                                    <input name="tel" data-validate="required" type="text" data-role="input" data-label="Контактний телефон" data-prepend="<span class='mif-phone'>" value=""/>
+                                    <span class="invalid_feedback">Введіть контактний телефон</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group mt-6">
+                            <div class="row">
+                                <div class="cell-md-6">
+                                    <input name="title" data-validate="required" type="text" data-role="input" data-label="Назва" value=""/>
+                                    <span class="invalid_feedback">Введіть назву об'яви</span>
+                                </div>
+                                <div class="cell-md-3">
+                                    <input name="price" data-validate="number,min=0" type="number" data-role="input" data-label="Вартість" value="0" data-append="грн"/>
+                                </div>
+                                <div class="cell-md-3">
+                                    <input name="urgently" type="checkbox" data-role="switch" data-caption="Терміново" class="mt-5"/>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <textarea name="description" data-validate="required" data-role="textarea" placeholder="Опішить детально..."></textarea>
+                                <span class="invalid_feedback">Введіть детальний опис</span>
+                            </div>
+                        </div>
+                        <div class="form-actions mt-4">
+                            <button class="button success">Відправити на розгляд...</button>
+                            <button class="button history-back" type="button">Скасувати</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="cell-xl-4">
+                    <div class="">
+                        <h1 class="d-flex flex-row flex-nowrap flex-align-center">
+                            <span>Об'яви</span>
+                        </h1>
+
+                        <div class="blog-sidebar-group">
+                            Ласкаво просимо до нашої дошки оголошень! Тут ви можете поділитись своєю об’явою з іншими мешканцями нашого будинку.
+                        </div>
+
+                        <div class="blog-sidebar-group mt-4">
+                            <Rss />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</Page>
+<script is:inline src="https://smtpjs.com/v3/smtp.js"></script>
+<script src="../../js/email.js"></script>

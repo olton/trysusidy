@@ -76,34 +76,36 @@ const ads = filterPosts(await getCollection("ads"), {limit: 5})
             <div class="row">
                 <div class="cell-xl-7 border-right bd-default pr-10">
                     <div class="h4 fg-red text-bold border-bottom bd-default pb-2 mb-6">Реквізити для добровільного внеску на альтернативні джерела живлення</div>
-                    <table class="table striped mb-10">
-                        <tbody>
-                        <tr>
-                            <td>Назва</td>
-                            <td><strong>ОСББ “Три сусіди 1”</strong></td>
-                        </tr>
-                        <tr>
-                            <td>ЄДРПОУ</td>
-                            <td><strong>42337908</strong></td>
-                        </tr>
-                        <tr>
-                            <td>Рахунок</td>
-                            <td><strong>UA383052990000026007046712057</strong></td>
-                        </tr>
-                        <tr>
-                            <td>Банк</td>
-                            <td><strong>АТ КБ “Приватбанк”</strong></td>
-                        </tr>
-                        <tr>
-                            <td>Призначення</td>
-                            <td><strong>Добровільний внесок на придбання альтернативних джерел живлення
-                                (ОР-ХХХХ)</strong></td>
-                        </tr>
-                        <tr>
-                            <td colspan="2" class="reduce-2">*) Замість ОР-ХХХХ вкажіть свій особовий рахунок </td>
-                        </tr>
-                        </tbody>
-                    </table>
+                    <div class="scrollable-container">
+                        <table class="table striped mb-10">
+                            <tbody>
+                            <tr>
+                                <td>Назва</td>
+                                <td><strong>ОСББ “Три сусіди 1”</strong></td>
+                            </tr>
+                            <tr>
+                                <td>ЄДРПОУ</td>
+                                <td><strong>42337908</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Рахунок</td>
+                                <td><strong>UA383052990000026007046712057</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Банк</td>
+                                <td><strong>АТ КБ “Приватбанк”</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Призначення</td>
+                                <td><strong>Добровільний внесок на придбання альтернативних джерел живлення
+                                    (ОР-ХХХХ)</strong></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="reduce-2">*) Замість ОР-ХХХХ вкажіть свій особовий рахунок </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
                     <div class="h3 text-bold border-bottom bd-default pb-2 mb-6">Новини нашого ОСББ</div>
                     {
@@ -145,12 +147,12 @@ const ads = filterPosts(await getCollection("ads"), {limit: 5})
                     <div class="sidebar-group">
                         <div class="text-bold">Сервісні служби ОСББ</div>
                         <div class="row mt-4">
-                            <div class="cell-6">
+                            <div class="cell-xl-6">
                                 <div>Диспетчер</div>
                                 <div><span class="mif-phone mr-1"></span>(095) 503-9099</div>
                                 <div><span class="mif-phone mr-1"></span>(098) 465-3919</div>
                             </div>
-                            <div class="cell-6 bg-red fg-white p-4 border-radius-20">
+                            <div class="cell-xl-6 bg-red fg-white p-4 border-radius-20">
                                 <div>Аварійна</div>
                                 <div><span class="mif-phone mr-1"></span>(044) 361-4863</div>
                             </div>
