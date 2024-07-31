@@ -6,7 +6,7 @@ import {getCollection} from "astro:content";
 import NewsCard from "../components/NewsCard.astro";
 import Rss from "../components/RssChanels.astro"
 import AdsCard from "../components/AdsCard.astro";
-import Assembly from "../components/assembly.astro";
+import Assembly from "../pages/parts/generators.astro";
 
 const news = filterPosts(await getCollection("news", {limit: 5}))
 const vacancies = filterPosts(await getCollection("vacancies"))
@@ -125,15 +125,7 @@ const ads = filterPosts(await getCollection("ads"), {limit: 5})
 
                 <div class="cell-xl-5">
                     <div class="sidebar-group">
-                        <Assembly
-                                title="Збір на генератори"
-                                background="op-green"
-                                color="fg-darkGreen"
-                                total="2500000"
-                                current="363369"
-                                stroke="#e8e8e8"
-                                fill="green"
-                        />
+                        <Assembly/>
                     </div>
 
                     <div class="sidebar-group">

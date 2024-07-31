@@ -1,6 +1,7 @@
 ---
 import Page from "../layouts/Page.astro"
-import Assembly from "../components/assembly.astro";
+// import Assembly from "../components/assembly.astro";
+import Assembly from "../pages/parts/generators.astro"
 ---
 <Page title="Терміновий збір на альтернативні джерела живлення тепло-, водо-постачання">
     <div class="container-fluid mb-10">
@@ -53,15 +54,7 @@ import Assembly from "../components/assembly.astro";
                 </div>
                 <div class="cell-xl-5">
                     <div class="sidebar-group">
-                        <Assembly
-                                title="Збір на генератори"
-                                background="op-green"
-                                color="fg-darkGreen"
-                                total="2500000"
-                                current="363369"
-                                stroke="#e8e8e8"
-                                fill="green"
-                        />
+                        <Assembly />
                     </div>
 
                     <div class="sidebar-group">
