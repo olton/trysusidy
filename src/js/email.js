@@ -5,7 +5,7 @@ globalThis.sendRequestForAdsBlock = async (form) => {
     const result = await Email.send({
         SecureToken : TOKEN,
         To : 'serhii@pimenov.com.ua',
-        From : "serhii@pimenov.com.ua",
+        From : "site@trysusidy.kyiv.ua",
         Subject : "ОСББ Три сусіди 1 - Запит на створення об'яви",
         Body : `
     ФІО: ${form["name"].value}<br/>                               
