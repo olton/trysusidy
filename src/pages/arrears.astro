@@ -77,7 +77,7 @@ import Page from "../layouts/Page.astro"
                 </div>
 
                 <div class="cell-xl-5">
-                    <h3>Загальний борг станом на: <span id="curr-date"></span> становить</h3>
+                    <h3 class="text-light">Загальний борг станом на <span class="text-bold" id="curr-date"></span></h3>
                     <div class="fg-red" id="general-debt" style="font-size: 74px">0</div>
                 </div>
             </div>
@@ -126,6 +126,7 @@ import Page from "../layouts/Page.astro"
     }
 
     $("#general-debt").html(`${num_fmt(all, ",")} <span class="reduce-6">грн</span> `)
+    $("#curr-date").html(datetime().format("DD/MM/YYYY"))
 </script>
 <style>
     .content {
