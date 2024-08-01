@@ -1,0 +1,117 @@
+---
+import Page from "../layouts/Page.astro"
+import {Image} from "astro:assets"
+import MaleImage from "../../assets/male.svg"
+import FemaleImage from "../../assets/female.svg"
+---
+<Page title="Правління ОСББ 'Три сусіди 1'">
+    <div class="container-fluid">
+        <div class="container">
+            <h3>Правління ОСББ "Три сусіди 1"</h3>
+
+            <div class="manager-board">
+                <div class="manager-card">
+                    <div class="face">
+                        <Image src={MaleImage} alt="" height="120"/>
+                    </div>
+                    <div class="name">Нижник Олександр Миколайович</div>
+                    <div class="addr">П. Григоренка, 24-1</div>
+                </div>
+
+                <div class="manager-card">
+                    <div class="face">
+                        <Image src={MaleImage} alt="" height="120"/>
+                    </div>
+                    <div class="name">Сухий Сергій Іванович</div>
+                    <div class="addr">П. Григоренка, 24-2</div>
+                </div>
+
+                <div class="manager-card">
+                    <div class="face">
+                        <Image src={FemaleImage} alt="" height="120"/>
+                    </div>
+                    <div class="name">Белаш  Людмила Миколаївна</div>
+                    <div class="addr">Г. Ахматової, 31-1</div>
+                </div>
+
+                <div class="manager-card">
+                    <div class="face">
+                        <Image src={MaleImage} alt="" height="120"/>
+                    </div>
+                    <div class="name">Гончарук Віктор Михайлович</div>
+                    <div class="addr">Г. Ахматової, 31-2</div>
+                </div>
+
+                <div class="manager-card">
+                    <div class="face">
+                        <Image src={FemaleImage} alt="" height="120"/>
+                    </div>
+                    <div class="name">Григорова Юлія Русланівна</div>
+                    <div class="addr">Г. Ахматової, 31-3</div>
+                </div>
+
+                <div class="manager-card">
+                    <div class="face">
+                        <Image src={FemaleImage} alt="" height="120"/>
+                    </div>
+                    <div class="name">Пудак Оксана Вікторівна</div>
+                    <div class="addr">Г. Ахматової, 31-4</div>
+                </div>
+
+                <div class="manager-card">
+                    <div class="face">
+                        <Image src={MaleImage} alt="" height="120"/>
+                    </div>
+                    <div class="name">Болотнюк Юрій Володимирович</div>
+                    <div class="addr">Г. Ахматової, 33-1</div>
+                </div>
+
+                <div class="manager-card">
+                    <div class="face">
+                        <Image src={FemaleImage} alt="" height="120"/>
+                    </div>
+                    <div class="name">Попова Людмила Анатоліївна</div>
+                    <div class="addr">Г. Ахматової, 33-1</div>
+                </div>
+
+                <div class="manager-card">
+                    <div class="face">
+                        <Image src={FemaleImage} alt="" height="120"/>
+                    </div>
+                    <div class="name">Мусаковська Світлана Анатоліївна</div>
+                    <div class="addr">Офісні приміщення</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</Page>
+<style>
+    .manager-board {
+        display: flex;
+        flex-flow: row wrap;
+        gap: 40px;
+        justify-content: space-around;
+        margin: 40px 0;
+    }
+
+    .manager-card {
+        border: 1px solid var(--border-color);
+        width: 20%;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+
+        .face {
+        }
+
+        .name {
+            text-align: center;
+            padding: 10px 20px;
+        }
+
+        .addr {
+            border-top: 1px solid var(--border-color)
+        }
+    }
+</style>
