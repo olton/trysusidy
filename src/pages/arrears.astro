@@ -141,24 +141,24 @@ import Rss from "../components/RssChanels.astro";
 
             const tr = $("<tr>").appendTo(table)
             tr.append( $("<td>").css("width", 130).text(d) )
-            tr.append( $("<td>").addClass('text-right').addClass((sum > 10000 ? 'fg-red text-bold' : '')).html(`${num_fmt(sum)} <span class="reduce-2">грн</span>`) )
+            tr.append( $("<td>").addClass('text-right').addClass((sum > 10000 ? 'fg-red text-bold' : '')).html(`${num_fmt(sum, " ")} <span class="reduce-2">грн</span>`) )
 
             if (sum > 10000) {
                 topDebtor++
                 topDebtorSum += sum
             }
         }
-        $(`#total-${addr}`).html(`${num_fmt(total, ",")} <span class="reduce-6">грн</span> `)
+        $(`#total-${addr}`).html(`${num_fmt(total, " ")} <span class="reduce-6">грн</span> `)
         all += total
 
         const tr = $("<tr>").appendTo(table)
-        tr.append($("<td>").addClass('text-right').attr("colspan", 2).html(`Загальний борг: <span class="ml-2 text-leader2">${num_fmt(total)}</span> грн`))
+        tr.append($("<td>").addClass('text-right').attr("colspan", 2).html(`Загальний борг: <span class="ml-2 text-leader2">${num_fmt(total, " ")}</span> грн`))
     }
 
-    $("#general-debt").html(`${num_fmt(all, ",")} <span class="reduce-6">грн</span>`)
+    $("#general-debt").html(`${num_fmt(all, " ")} <span class="reduce-6">грн</span>`)
     $("#curr-date").html(datetime().format("DD/MM/YYYY"))
     $("#top-debtor-count").html(topDebtor)
-    $("#top-debtor-sum").html(`${num_fmt(topDebtorSum)} <span class="reduce-6">грн</span>`)
+    $("#top-debtor-sum").html(`${num_fmt(topDebtorSum, " ")} <span class="reduce-6">грн</span>`)
 </script>
 <style>
     .frame {

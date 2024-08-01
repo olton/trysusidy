@@ -6,11 +6,11 @@ const {title = 'Збір', background = '', color = '', total = 100, current = 0
     <div class:list={["h3 text-bold",  color]}>{title}</div>
     <div data-role="donut" data-size="200" data-value={current} data-total={total} data-stroke={stroke} data-fill={fill}></div>
     <div class="text-center mt-4">
-        <div>Мета: <b>{num_fmt(total, ",")}</b> грн</div>
+        <div>Мета: <b>{num_fmt(total, " ")}</b> грн</div>
     </div>
     <div class="text-center mt-4">
         вже зібрано:
     </div>
-    <div class="display3 text-bold mt-4 fg-darkGreen">{num_fmt(current, ",")}</div>
+    <div class="display3 text-bold mt-4 fg-darkGreen">{num_fmt(current, " ")}</div>
     <small class="text-leader">грн</small>
 </div>
