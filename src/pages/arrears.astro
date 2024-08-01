@@ -116,7 +116,7 @@ import Page from "../layouts/Page.astro"
 
             const tr = $("<tr>").appendTo(table)
             tr.append( $("<td>").css("width", 130).text(d) )
-            tr.append( $("<td>").addClass('text-right').html(`${num_fmt(sum)} <span class="reduce-2">грн</span>`) )
+            tr.append( $("<td>").addClass('text-right').addClass((sum > 10000 ? 'fg-red text-bold' : '')).html(`${num_fmt(sum)} <span class="reduce-2">грн</span>`) )
         }
         $(`#total-${addr}`).html(`${num_fmt(total, ",")} <span class="reduce-6">грн</span> `)
         all += total
