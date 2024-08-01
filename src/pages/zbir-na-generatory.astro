@@ -61,11 +61,11 @@ import Assembly from "../parts/generators.astro"
                         <table>
                             <tr>
                                 <td class="bg-green"></td>
-                                <td>Повна оплата</td>
+                                <td>Дуже велике дякую</td>
                             </tr>
                             <tr>
-                                <td class="bg-orange"></td>
-                                <td>Часткова оплата</td>
+                                <td class="op-green"></td>
+                                <td>Велике дякую</td>
                             </tr>
                         </table>
                     </div>
@@ -128,7 +128,7 @@ import Assembly from "../parts/generators.astro"
             if (pays[0].includes(i)) {
                 td.addClass("bg-green fg-white")
             } else if (pays[1].includes(i)) {
-                td.addClass("bg-orange fg-white")
+                td.addClass("op-green fg-white")
             }
 
             index++
