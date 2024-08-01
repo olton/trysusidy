@@ -11,12 +11,14 @@ import FemaleImage from "../../assets/female.svg"
 
             <div class="manager-board">
                 <div class="manager-card">
+                    <div class="no-authority"><span class="mif-cancel fg-red mif-2x"></span></div>
                     <div class="face">
                         <Image src={MaleImage} alt="" height="120"/>
                     </div>
                     <div class="name">Нижник Олександр Миколайович</div>
                     <div class="addr">П. Григоренка, 24-1</div>
                     <div class="tel">(xxx) xxx-xxxx</div>
+                    <div class="rem alert w-100 text-center reduce-2">Склав повноваження</div>
                 </div>
 
                 <div class="manager-card">
@@ -56,12 +58,14 @@ import FemaleImage from "../../assets/female.svg"
                 </div>
 
                 <div class="manager-card">
+                    <div class="no-authority"><span class="mif-cancel fg-red mif-2x"></span></div>
                     <div class="face">
                         <Image src={FemaleImage} alt="" height="120"/>
                     </div>
                     <div class="name">Пудак Оксана Вікторівна</div>
                     <div class="addr">Г. Ахматової, 31-4</div>
                     <div class="tel">(xxx) xxx-xxxx</div>
+                    <div class="rem alert w-100 text-center reduce-2">Не є власником</div>
                 </div>
 
                 <div class="manager-card">
@@ -124,6 +128,12 @@ import FemaleImage from "../../assets/female.svg"
             border-top: 1px solid var(--border-color);
             width: 100%;
             text-align: center;
+        }
+
+        .no-authority {
+            position: absolute;
+            top: 10px;
+            right: 10px;
         }
     }
 </style>
