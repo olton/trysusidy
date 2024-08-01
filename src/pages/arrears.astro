@@ -1,0 +1,149 @@
+---
+import Page from "../layouts/Page.astro"
+---
+<Page title="Заборгованність за комунальні послуги по ОСББ 'Три сусіди 1'">
+    <div class="container-fluid mb-10">
+        <div class="container">
+            <div class="row" style="--grid-gutter: 80px">
+                <div class="cell-xl-7">
+                    <div class="h3 mb-6">Заборгованість за комунальні послуги по ОСББ "Три сусіди 1"</div>
+
+                    <div data-role="accordion" data-one-frame="false">
+                        <div class="frame">
+                            <h6 class="heading d-flex">Г. Ахматової, буд. 33-1 <span class="ml-auto" id="total-ah33_1"></span></h6>
+                            <div class="content">
+                                <table class="table compact striped border cell-border pays-table" id="ah33_1">
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="frame">
+                            <h6 class="heading d-flex">Г. Ахматової, буд. 33-2 <span class="ml-auto" id="total-ah33_2"></span></h6>
+                            <div class="content">
+                                <table class="table compact striped border cell-border pays-table" id="ah33_2">
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="frame">
+                            <h6 class="heading d-flex">Г. Ахматової, буд. 31-1 <span class="ml-auto" id="total-ah31_1"></span></h6>
+                            <div class="content">
+                                <table class="table compact striped border cell-border pays-table" id="ah31_1">
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="frame">
+                            <h6 class="heading d-flex">Г. Ахматової, буд. 31-2 <span class="ml-auto" id="total-ah31_2"></span></h6>
+                            <div class="content">
+                                <table class="table compact striped border cell-border pays-table" id="ah31_2">
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="frame">
+                            <h6 class="heading d-flex">Г. Ахматової, буд. 31-3 <span class="ml-auto" id="total-ah31_3"></span></h6>
+                            <div class="content">
+                                <table class="table compact striped border cell-border pays-table" id="ah31_3">
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="frame">
+                            <h6 class="heading d-flex">Г. Ахматової, буд. 31-4 <span class="ml-auto" id="total-ah31_4"></span></h6>
+                            <div class="content">
+                                <table class="table compact striped border cell-border pays-table" id="ah31_4">
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="frame">
+                            <h6 class="heading d-flex">П. Григоренка, буд. 24-1 <span class="ml-auto" id="total-gr24_1"></span></h6>
+                            <div class="content">
+                                <table class="table compact striped border cell-border pays-table" id="gr24_1">
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="frame">
+                            <h6 class="heading d-flex">П. Григоренка, буд. 24-2 <span class="ml-auto" id="total-gr24_2"></span></h6>
+                            <div class="content">
+                                <table class="table compact striped border cell-border pays-table" id="gr24_2">
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cell-xl-5">
+                    <h3>Загальний борг станом на: <span id="curr-date"></span> становить</h3>
+                    <div class="fg-red" id="general-debt" style="font-size: 74px">0</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</Page>
+<script>
+    import {num_fmt} from "../js/format.js";
+
+    const debt = {
+        ah31_1: {2: 2709, 6: 2912, 14: 6235, 24: 4474, 40: 16273, 48: 22597, 58: 3060, 62: 1518, 64: 10201},
+        ah31_2: {65: 19629, 66: 1364, 67: 3486, 69: 2214, 73: 7946, 83: 3279, 88: 1592, 90: 1239, 97: 15616, 107: 1303, 108: 2767, 110: 734, 129: 4397},
+        ah31_3: {114: 2233, 156: 6931, 179: 3106, 191: 1262, 194: 1467},
+        ah31_4: {201: 28822, 206: 18428, 208: 20912, 210: 8899, 212: 23933, 217: 11133, 220: 18515, 227: 7072, 230: 3306, 234: 2846, 237: 7679, 240: 8882, 242: 5889, 244: 17008, 249: 22291, 257: 13859, 261: 4251},
+
+        ah33_1: {2: 8365, 3: 10846, 7: 1617, 16: 2222, 29: 1526, 30: 2000, 36: 2276, 43: 2864, 60: 16307},
+        ah33_2: {62: 12519, 67: 2639, 76: 20099, 78: 1413, 87: 2637, 91: 1313, 92: 5365, 94: 938, 106: 21104, 109: 23247, 111: 1321, 114: 3854, 115: 3437},
+
+        gr24_1: {4: 8300, 12: 2980, 14: 2220, 17: 2220, 18: 6009, 33: 3470, 37: 2781, 47: 11165, 49: 2239, 50: 1357, 51: 1256, 59: 4632},
+        gr24_2: {64: 5826, 68: 2166, 69: 22716, 72: 16311, 76: 1495, 77: 3013, 78: 1940, 85: 29257, 92: 10144, 99: 11050},
+    }
+
+    let curr = ''
+    let all = 0
+
+    for (const addr in debt) {
+        if (curr !== addr) {
+            curr = addr
+        }
+        const table = $(`#${addr} tbody`)
+        let total = 0
+        for (const d in debt[addr]) {
+            const sum = debt[addr][d]
+
+            total += sum
+
+            const tr = $("<tr>").appendTo(table)
+            tr.append( $("<td>").css("width", 130).text(d) )
+            tr.append( $("<td>").addClass('text-right').html(`${num_fmt(sum)} <span class="reduce-2">грн</span>`) )
+        }
+        $(`#total-${addr}`).html(`${num_fmt(total, ",")} <span class="reduce-6">грн</span> `)
+        all += total
+
+        const tr = $("<tr>").appendTo(table)
+        tr.append($("<td>").addClass('text-right').attr("colspan", 2).html(`Загальний борг: <span class="ml-2 text-leader2">${num_fmt(total)}</span> грн`))
+    }
+
+    $("#general-debt").html(`${num_fmt(all, ",")} <span class="reduce-6">грн</span> `)
+</script>
+<style>
+    .content {
+        margin-bottom: 20px;
+    }
+    .heading {
+        padding-top: 20px!important;
+        padding-bottom: 20px!important;
+        padding-left: 60px!important;
+    }
+    .heading::before {
+        content: "+"!important;
+        font-weight: 100!important;
+        top: 12px!important;
+        left: 6px!important;
+    }
+    .frame.active .heading::before {
+        content: "-"!important;
+        transform: rotate(0);
+    }
+</style>
