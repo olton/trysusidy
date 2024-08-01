@@ -135,6 +135,10 @@ import Rss from "../components/RssChanels.astro";
     $("#curr-date").html(datetime().format("DD/MM/YYYY"))
 </script>
 <style>
+    .frame {
+        margin: 0!important;
+        border-bottom: 1px solid var(--border-color);
+    }
     .content {
         margin-bottom: 20px;
     }
@@ -143,6 +147,8 @@ import Rss from "../components/RssChanels.astro";
         padding-bottom: 20px!important;
         padding-left: 60px!important;
         user-select: none;
+        background-color: transparent!important;
+        margin: 0;
     }
     .heading::before {
         content: "+"!important;
