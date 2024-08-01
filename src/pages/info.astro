@@ -11,45 +11,58 @@ import OshadLogo from "../../assets/oshadbank.jpg";
             <div class="row" style="--grid-gutter: 80px">
                 <div class="cell-xl-7">
                     <h1>Про ОСББ</h1>
-                    <h4>Загальна інформація:</h4>
-                    <div>
-                        <div>Назва:</div>
-                        <div class="text-leader2 text-bold">Об'єднання співвласників багатоквартирного будинку "Три сусіди 1"</div>
+                    <div class="row">
+                        <div class="cell-xl-8">
+                            <div>
+                                <div class="label">Назва:</div>
+                                <div class="text-leader2">Об'єднання співвласників багатоквартирного будинку "Три сусіди 1"</div>
+                            </div>
+                        </div>
+                        <div class="cell-xl-4">
+                            <div class="">
+                                <div class="label">Код ЄДРПОУ:</div>
+                                <div class="text-leader2">42337908</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="cell-xl-6">
+                            <div class="">
+                                <div class="label">Дата реєстрації:</div>
+                                <div class="text-leader2">30.07.2018</div>
+                            </div>
+                        </div>
+                        <div class="cell-xl-6">
+                            <div class="">
+                                <div class="label">Номер реєстрації:</div>
+                                <div class="text-leader2">10651020000028233</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        <div class="label">Адреса реєстрації:</div>
+                        <div class="text-leader2">02055, м. Київ, вул. Г. Ахматової, 31</div>
                     </div>
                     <div class="mt-4">
-                        <div>Код ЄДРПОУ:</div>
-                        <div class="text-leader2 text-bold">42337908</div>
-                    </div>
-                    <div class="mt-4">
-                        <div>Дата реєстрації:</div>
-                        <div class="text-leader2 text-bold">30.07.2018</div>
-                    </div>
-                    <div class="mt-4">
-                        <div>Номер реєстрації:</div>
-                        <div class="text-leader2 text-bold">10651020000028233</div>
-                    </div>
-                    <div class="mt-4">
-                        <div>Адреса реєстрації:</div>
-                        <div class="text-leader2 text-bold">02055, м. Київ, вул. Г. Ахматової, 31</div>
-                    </div>
-                    <div class="mt-4">
-                        <div>Уповноважена особа:</div>
-                        <div class="text-leader2 text-bold">Григорова Юлія Русланівна</div>
+                        <div class="label">Уповноважена особа:</div>
+                        <div class="text-leader2">Григорова Юлія Русланівна</div>
                         <div><span class="mif-phone mr-2"></span>(068) 861-1229</div>
                     </div>
                     <div class="mt-4">
-                        <div>Головний бухгалтер:</div>
-                        <div class="text-leader2 text-bold">Чала Галина Борисівна</div>
+                        <div class="label">Головний бухгалтер:</div>
+                        <div class="text-leader2">Чала Галина Борисівна</div>
                         <div><span class="mif-phone mr-2"></span>(068) 244-3874</div>
                     </div>
                     <div class="mt-4">
-                        <div>Орган керування юридичної особи:</div>
-                        <div class="text-leader2 text-bold">Діє на підставі установчих документів, затверджених засновниками (учасниками)</div>
+                        <div class="label">Орган керування юридичної особи:</div>
+                        <div class="text-leader2">Діє на підставі установчих документів, затверджених засновниками (учасниками)</div>
                     </div>
                     <div class="mt-4">
-                        <div>Види діяльності:</div>
-                        <div class="text-leader2 text-bold">КВЕД 81.10  Комплексне обслуговування об'єктів</div>
-                        <div class="text-leader2 text-bold">КВЕД 68.20  Надання в оренду й експлуатацію власного чи орендованого нерухомого майна</div>
+                        <div class="label">Види діяльності:</div>
+                        <div class="text-leader2">КВЕД 81.10  Комплексне обслуговування об'єктів</div>
+                        <div class="text-leader2">КВЕД 68.20  Надання в оренду й експлуатацію власного чи орендованого нерухомого майна</div>
                     </div>
                 </div>
                 <div class="cell-xl-5 border-left bd-default pl-8">
@@ -89,3 +102,15 @@ import OshadLogo from "../../assets/oshadbank.jpg";
         </div>
     </div>
 </Page>
+<style>
+    .label {
+        background-color: #f3f3f3;
+        font-size: 10px;
+        padding: 4px 10px;
+        margin: 20px 0;
+    }
+
+    .row + .row {
+        margin-top: 0;
+    }
+</style>
