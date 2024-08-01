@@ -1,5 +1,6 @@
 ---
 import Page from "../layouts/Page.astro"
+import Rss from "../components/RssChanels.astro";
 ---
 <Page title="Заборгованність за комунальні послуги по ОСББ 'Три сусіди 1'">
     <div class="container-fluid mb-10">
@@ -79,6 +80,11 @@ import Page from "../layouts/Page.astro"
                 <div class="cell-xl-5">
                     <h3 class="text-light">Загальний борг станом на <span class="text-bold" id="curr-date"></span></h3>
                     <div class="fg-red" id="general-debt" style="font-size: 74px">0</div>
+
+                    <div class="sidebar-group">
+                        <Rss/>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -136,6 +142,7 @@ import Page from "../layouts/Page.astro"
         padding-top: 20px!important;
         padding-bottom: 20px!important;
         padding-left: 60px!important;
+        user-select: none;
     }
     .heading::before {
         content: "+"!important;
