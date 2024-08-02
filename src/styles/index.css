@@ -226,3 +226,29 @@ table {
         border: 1px solid var(--border-color)!important;
     }
 }
+
+.frame {
+    margin: 0!important;
+    border-bottom: 1px solid var(--border-color);
+}
+.content {
+    margin-bottom: 20px;
+}
+.heading {
+    padding-top: 20px!important;
+    padding-bottom: 20px!important;
+    padding-left: 60px!important;
+    user-select: none;
+    background-color: transparent!important;
+    margin: 0;
+}
+.heading::before {
+    content: "+"!important;
+    font-weight: 100!important;
+    top: 12px!important;
+    left: 6px!important;
+}
+.frame.active .heading::before {
+    content: "-"!important;
+    transform: rotate(0);
+}
