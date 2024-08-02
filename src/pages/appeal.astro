@@ -1,0 +1,84 @@
+---
+import Page from "../layouts/Page.astro"
+---
+<Page title="Зробити звернення">
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="cell-xl-8">
+                    <h2>Звернення до Голови:</h2>
+                    <form action="javascript:" onsubmit="sendAppealForHead(this)" data-role="validator">
+                        <div class="form-group">
+                            <input data-validate="required" type="text" name="name" data-role="input" data-label="Ваше ім'я та прізвище"/>
+                            <span class="invalid_feedback">Введіть своє ім'я</span>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="cell-md-7">
+                                    <input name="email" data-validate="required,email" type="text" data-role="input" data-label="Ваша email адреса" data-prepend="<span class='mif-email'>" value=""/>
+                                    <span class="invalid_feedback">Введіть коректне значення для email адреси</span>
+                                </div>
+                                <div class="cell-md-5">
+                                    <input name="tel" data-validate="required" type="text" data-role="input" data-label="Контактний телефон" data-prepend="<span class='mif-phone'>" value=""/>
+                                    <span class="invalid_feedback">Введіть контактний телефон</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="cell-md-7">
+                                    <label>Адреса</label>
+                                    <select name="house" data-role="select" data-filter="false">
+                                        <option value="Г. Ахматової, 33-1">Г. Ахматової, 33-1</option>
+                                        <option value="Г. Ахматової, 33-2">Г. Ахматової, 33-2</option>
+                                        <option value="Г. Ахматової, 31-1">Г. Ахматової, 31-1</option>
+                                        <option value="Г. Ахматової, 31-2">Г. Ахматової, 31-2</option>
+                                        <option value="Г. Ахматової, 31-3">Г. Ахматової, 31-3</option>
+                                        <option value="Г. Ахматової, 31-4">Г. Ахматової, 31-4</option>
+                                        <option value="П. Григоренка, 24-1">П. Григоренка, 24-1</option>
+                                        <option value="П. Григоренка, 24-2">П. Григоренка, 24-2</option>
+                                    </select>
+                                </div>
+                                <div class="cell-md-5">
+                                    <input name="app" data-validate="required,number" type="number" data-role="input" data-label="Квартира" value=""/>
+                                    <span class="invalid_feedback">Введіть номер квартири або офіса</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group mt-4">
+                            <label>Ваше питання</label>
+                            <textarea name="question" data-validate="required" data-role="textarea" placeholder="Опішить детально..."></textarea>
+                            <span class="invalid_feedback">Введіть детальний опис</span>
+                        </div>
+                        <div class="form-group">
+                            <input name="urgently" type="checkbox" data-role="switch" data-caption="Термінове питання"/>
+                        </div>
+                        <div class="form-actions mt-6 mb-10">
+                            <button class="button success">Відправити...</button>
+                            <button class="button history-back" type="button">Скасувати</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="cell-xl-4">
+                    <div class="blog-sidebar-group">
+                        <div class="text-bold border-bottom bd-default">Контакти</div>
+                        <address class="mt-4 text-light">
+                            <div class="text-bold">Голова правління</div>
+                            <div class="h4">Григорова Юлія Русланівна</div>
+                            <div><span class="mif-phone mr-1"></span><a class="fg-dark" href="tel:+380588611229">(068) 861-1229</a></div>
+                            <div><span class="mif-email mr-1"></span><a class="fg-dark" href="mailto:head@trysusidy.kyiv.ua">head@trysusidy.kyiv.ua</a></div>
+                        </address>
+                        <address class="mt-4 text-light">
+                            <div class="text-bold">Бухгалтер</div>
+                            <div class="h4">Чала Галина Борисівна</div>
+                            <div><span class="mif-phone mr-1"></span><a class="fg-dark" href="tel:+380588611229">(068) 244-3874</a></div>
+                            <div><span class="mif-email mr-1"></span><a class="fg-dark" href="mailto:finance@trysusidy.kyiv.ua">finance@trysusidy.kyiv.ua</a></div>
+                        </address>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</Page>
+<script is:inline src="https://smtpjs.com/v3/smtp.js"></script>
+<script src="../js/email.js"></script>
