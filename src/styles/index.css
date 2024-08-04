@@ -252,3 +252,15 @@ table {
     content: "-"!important;
     transform: rotate(0);
 }
+
+.present-card {
+    height: 100%;
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    border-radius: 20px;
+
+    h4 {
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 10px;
+    }
+}
