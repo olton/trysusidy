@@ -2,7 +2,7 @@
 import Page from "../layouts/Page.astro"
 ---
 <Page title="Мапа тривог">
-    <iframe src="https://alerts.in.ua/?showThreats&live&showWarnings&lightMode"></iframe>
+    <iframe src="https://alerts.in.ua/?kiosk&showThreats&live&showWarnings&lightMode"></iframe>
 </Page>
 <style>
     iframe {
@@ -10,3 +10,7 @@ import Page from "../layouts/Page.astro"
         width: 100%;
     }
 </style>
+<script>
+    const iframe = document.querySelector("iframe").contentWindow;
+    iframe.document.querySelector("html").classList.add("contrast")
+</script>
