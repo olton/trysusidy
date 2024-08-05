@@ -33,7 +33,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-flow: column;
-    padding-top: 120px;
+    padding-top: 90px;
     font-family: var(--regular-font), sans-serif;
 }
 
