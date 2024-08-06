@@ -1,7 +1,7 @@
 ---
 import {datetime} from "@olton/datetime/dist/datetime.es.js";
 import { getCollection } from 'astro:content';
-import Layout from "../../layouts/Page.astro";
+import Page from "../../layouts/Page.astro";
 import ShareThis from "../../components/ShareThis.astro";
 import Rss from "../../components/RssChanels.astro";
 
@@ -18,8 +18,8 @@ const { Content, headings, remarkPluginFrontmatter } = await entry.render();
 const {title, price, urgently, date, color, contact, phone} = entry.data
 ---
 
-<Layout>
-    <section class="container-fluid">
+<Page title={title}>
+    <section class="container-fluid pt-6">
         <div class="container">
             <div class="row">
                 <div class="cell-md-8 border-right bd-default pr-8">
@@ -53,4 +53,4 @@ const {title, price, urgently, date, color, contact, phone} = entry.data
             </div>
         </div>
     </section>
-</Layout>
+</Page>

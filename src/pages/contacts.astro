@@ -1,10 +1,14 @@
 ---
 import Page from "../layouts/Page.astro"
+import ContactCard from "../components/ContactCard.astro"
 import {Image} from "astro:assets"
 import CustomersImage from "../../assets/customers.svg"
+import {getCollection} from "astro:content";
+
+const u_contacts = await getCollection('contacts')
 ---
 <Page title="Контакти - ОСББ Три сусіди 1">
-    <div class="container-fluid">
+    <div class="container-fluid pt-6">
         <div class="container">
             <div class="hero p-0 h-auto">
                 <div class="row">
@@ -211,11 +215,23 @@ import CustomersImage from "../../assets/customers.svg"
                         <div><span class="mif-phone mr-1"></span>(063) 217-1464</div>
                     </address>
 
+                    <address class="mt-10">
+                        <div class="h5 text-bold">Аптека ПрАТ Укрмедфарм</div>
+                        <div><span class="mif-phone mr-1"></span>(044) 570-1434</div>
+                    </address>
+
                 </div>
             </div>
 
         </div>
     </div>
 
-    <div class="container-fluid mb-10"></div>
+    <div class="container-fluid mb-10 mt-6">
+        <div class="container border-top bd-default pt-6">
+            <h4>Корисні контакти:</h4>
+            <div class="d-flex flex-row">
+                { u_contacts.map( c => <ContactCard contact={c} />)}
+            </div>
+        </div>
+    </div>
 </Page>

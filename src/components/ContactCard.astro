@@ -1,0 +1,10 @@
+---
+const { contact } = Astro.props
+const {name, phone, type, description = ""} = contact.data
+---
+<div class="usefulness-contact-card">
+    <div class="name">{name}</div>
+    <div class="type">{type}</div>
+    <div class="phone">{phone}</div>
+    {description && <div class="desc">{description}</div> }
+</div>

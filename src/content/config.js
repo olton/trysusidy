@@ -35,7 +35,7 @@ const news = defineCollection({
     type: 'content',
     schema: z.object({
         title: z.string(),
-        description: z.string(),
+        description: z.string().optional(),
         date: z.date(),
         important: z.boolean().default(false),
     })
@@ -45,7 +45,7 @@ const vacancies = defineCollection({
     type: 'content',
     schema: z.object({
         title: z.string(),
-        description: z.string(),
+        description: z.string().optional(),
         salary: z.number(),
         important: z.boolean().default(false),
     })
@@ -64,10 +64,21 @@ const ads = defineCollection({
     })
 })
 
+const contacts = defineCollection({
+    type: 'data',
+    schema: z.object({
+        name: z.string(),
+        phone: z.string(),
+        type: z.string(),
+        description: z.string().optional(),
+    })
+})
+
 export const collections = {
     authors,
     blog,
     news,
     vacancies,
     ads,
+    contacts,
 }

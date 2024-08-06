@@ -29,8 +29,8 @@ const recentPosts = filterPosts(await getCollection('blog'), {limit: 4})
 const allPosts = filterPosts(await getCollection('blog'))
 const cloudTags = tagsWeight(allPosts)
 ---
-<Page title="">
-    <section class="container-fluid">
+<Page title={title + " : Блог ОСББ Три сусіди 1"}>
+    <section class="container-fluid pt-6">
         <div class="container">
             <div class="row">
                 <div class="cell-md-8 border-right bd-default">
