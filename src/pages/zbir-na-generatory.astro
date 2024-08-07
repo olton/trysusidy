@@ -1,11 +1,12 @@
 ---
 import Page from "../layouts/Page.astro"
 import Assembly from "../parts/generators.astro"
+import GeneratorAccount from "../parts/generator-account.astro";
 ---
 <Page title="Терміновий збір на альтернативні джерела живлення тепло-, водо-постачання">
     <div class="container-fluid mb-10 pt-6">
         <div class="container">
-            <div class="row" style="--grid-gutter: 80px">
+            <div class="row" style="--grid-gutter: 40px">
                 <div class="cell-xl-7">
                     <div class="text-leader2 mb-10">
                         Терміновий збір на альтернативні джерела живлення тепло-, водо-постачання, забезпечення мінімального освітлення та роботи ліфтів в періоди відключення світла.
@@ -77,6 +78,11 @@ import Assembly from "../parts/generators.astro"
                         <p>Система буде гібридною. 1)Генератор +/-40 кВт 2)Інвертор на 15кВт + батарея(ї) в дану суму враховані АВР (Автоматичне ввімкнення резерву) монтажні роботи систем та мереж, налаштування та запуск.
                         <p>По перерахунку на квадратні метри, а саме так мешканці вирішили проводити збір коштів ( опираючись на квадратуру квартири) виходить 60грн / 1 м².
                         <p>Сплата буде проводитись як добровільний внесок, за допомогою платіжок на окремий рахунок.
+                    </div>
+
+                    <div class="mt-10">
+                        <div class="h4 fg-red text-bold border-bottom bd-default pb-2 mb-6">Реквізити для добровільного внеску на альтернативні джерела живлення</div>
+                        <GeneratorAccount/>
                     </div>
                 </div>
             </div>
