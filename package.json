@@ -31,9 +31,9 @@
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^15.2.3",
-    "astro": "^4.12.2",
+    "astro": "^4.13.2",
     "less": "^4.2.0",
-    "rollup": "^4.19.0",
+    "rollup": "^4.20.0",
     "rollup-plugin-postcss": "^4.0.2",
     "shx": "^0.3.4"
   }
