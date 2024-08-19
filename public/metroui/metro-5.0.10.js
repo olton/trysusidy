@@ -2631,8 +2631,8 @@ const matches = Element.prototype.matches;
 
 const $ = (selector, context) => new $.init(selector, context);
 
-$.version = "3.0.3";
-$.build_time = "17.07.2024, 10:20:08";
+$.version = "3.0.4";
+$.build_time = "11.08.2024, 23:12:11";
 $.info = () => console.info(`%c M4Q %c v${$.version} %c ${$.build_time} `, "color: white; font-weight: bold; background: #fd6a02", "color: white; background: darkgreen", "color: white; background: #0080fe;");
 
 $.fn = $.prototype = Object.create(Array.prototype);
@@ -4254,7 +4254,7 @@ $.ajax = function(p){
 };
 
 ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'JSON'].forEach(function(method){
-    $[method] = function(url, data, options){
+    $[method.toLowerCase()] = function(url, data, options){
         const _options = {
             method: method === 'JSON' ? 'GET' : method,
             url: url,
@@ -6835,7 +6835,7 @@ var Hooks$1 = /*#__PURE__*/Object.freeze({
 globalThis.Hooks = Hooks$1;
 
 /*!
- * Farbe  v1.0.3 - Color manipulation library
+ * Farbe  v1.0.4 - Color manipulation library
  * Copyright 2024 by Serhii Pimenov
  * Licensed under MIT
  !*/
@@ -6855,8 +6855,8 @@ class HSV {
 class HSL {
     constructor(h = 0, s = 0, l = 0) {
         this.h = h;
-        this.s = s;
-        this.l = l;
+        this.s = (""+s).includes("%") ? parseInt(s)/100 : s;
+        this.l = (""+l).includes("%") ? parseInt(l)/100 : l;
     }
 
     toString(){
@@ -6867,8 +6867,8 @@ class HSL {
 class HSLA {
     constructor(h = 0, s = 0, l = 0, a = 0) {
         this.h = h;
-        this.s = s;
-        this.l = l;
+        this.s = (""+s).includes("%") ? parseInt(s)/100 : s;
+        this.l = (""+l).includes("%") ? parseInt(l)/100 : l;
         this.a = a;
     }
 
@@ -7735,9 +7735,9 @@ const toColor = (color, mode = "rgb", alpha = 1) => {
  * @returns {string}
  */
 const toHEX = color => {
-    return typeof color === "string"
+    return typeof color === "string" && color[0] === "#"
         ? expandHexColor(color)
-        : rgb2hex(toRGB(color));
+        : rgb2hex(toRGB(parse$1(color)));
 };
 
 /**
@@ -8305,9 +8305,9 @@ const parseColor = function (color) {
     }
 
     let a = _color
-        .replace(/[^\d.,]/g, "")
+        .replace(/[^\d.,%]/g, "")
         .split(",")
-        .map(v => +v);
+        .map(v => isNaN(v) ? v : +v);
 
     if (_color[0] === "#") {
         return expandHexColor(_color);
@@ -8855,8 +8855,8 @@ const Primitives = {
     ...Primitives$1
 };
 
-const version$3 = "1.0.3";
-const build_time$3 = "14.07.2024, 17:25:33";
+const version$3 = "1.0.4";
+const build_time$3 = "11.08.2024, 23:47:03";
 
 const info$3 = () => {
     console.info(`%c Farbe %c v${version$3} %c ${build_time$3} `, "color: #ffffff; font-weight: bold; background: #ff00ff", "color: white; background: darkgreen", "color: white; background: #0080fe;");
@@ -11916,8 +11916,8 @@ globalThis.G = G$1;
 
     var Metro = {
 
-        version: "5.0.8",
-        build_time: "22.07.2024, 12:07:33",
+        version: "5.0.10",
+        build_time: "11.08.2024, 23:53:51",
         buildNumber: 0,
         isTouchable: isTouch,
         fullScreenEnabled: document.fullscreenEnabled,
@@ -12111,24 +12111,8 @@ globalThis.G = G$1;
             }
         },
 
-        showCompileTime: function(){
-            return ""
-        },
-
         aboutDlg: function(){
             alert("Metro UI - v" + Metro.version);
-        },
-
-        ver: function(){
-            return Metro.version;
-        },
-
-        build: function(){
-            return Metro.build;
-        },
-
-        compile: function(){
-            return ""
         },
 
         observe: function(){
@@ -12615,6 +12599,19 @@ globalThis.G = G$1;
 
             buffer: function(response){
                 return response.arrayBuffer();
+            }
+        },
+
+        i18n: {
+            loadLocale(lang = 'en-US'){
+
+            },
+
+            getMessage(id){
+                return ""
+            },
+
+            updateUI(){
             }
         }
     };
