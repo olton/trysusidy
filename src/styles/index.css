@@ -216,6 +216,7 @@ table {
     overflow-x: auto;
     table {
         width: auto!important;
+        min-width: 100%;
     }
 }
 
